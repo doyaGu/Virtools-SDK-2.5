@@ -328,7 +328,7 @@ public:
 		a: hash table to copy.
 
 	************************************************/
-	XHashTable(int initialsize = 16)
+	explicit XHashTable(int initialsize = 16)
 	{
 		initialsize = Near2Power(initialsize);
 		if (initialsize < 4) initialsize = 4;

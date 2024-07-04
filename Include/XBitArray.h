@@ -23,7 +23,7 @@ Remarks:
 class XBitArray  
 {
 public:
-	XBitArray(int initialsize = 1) {
+	explicit XBitArray(int initialsize = 1) {
 		if (initialsize<1) initialsize=1;
 		m_Size = (initialsize<<5);
 		if (m_Size > 32) { // we allocate only if > 32

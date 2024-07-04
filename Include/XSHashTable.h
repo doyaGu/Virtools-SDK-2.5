@@ -337,7 +337,7 @@ public:
 		a: hash table to copy.
 
 	************************************************/
-	XSHashTable(int initialsize = 8,float l = 0.75f)
+	explicit XSHashTable(int initialsize = 8,float l = 0.75f)
 	{
 		int dec = -1;
 		while (initialsize) { initialsize>>=1; dec++; } 

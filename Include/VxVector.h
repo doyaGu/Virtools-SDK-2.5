@@ -62,7 +62,7 @@ public:
 	// Constructors
 	// =====================================
 	VxVector();
-	VxVector(float f);
+	explicit VxVector(float f);
 	VxVector(float _x, float _y, float _z);
 	VxVector(const float f[3]);
 
@@ -464,9 +464,9 @@ public:
 	float w;
 
 	VxVector4() { x=y=z=w=0.0f; }
-	VxVector4(float f) { x=y=z=w=f; }
+	explicit VxVector4(float f) { x=y=z=w=f; }
 	VxVector4(float _x, float _y, float _z,float _w) { x=_x; y=_y; z=_z; w=_w; }
-	VxVector4(const float f[4]){ x=f[0]; y=f[1]; z=f[2]; w=f[3]; }
+	explicit VxVector4(const float f[4]){ x=f[0]; y=f[1]; z=f[2]; w=f[3]; }
 	VxVector4& operator = (const VxVector& v) {x=v.x;y=v.y;z=v.z;return *this;}
 	
 	// =====================================
@@ -577,7 +577,7 @@ typedef struct VxBbox
 
 	VxBbox():Max(-1e6f,-1e6f,-1e6f),Min(1e6f,1e6f,1e6f) {}
 	VxBbox(VxVector iMin, VxVector iMax):Max(iMax),Min(iMin) {}
-	VxBbox( float value ) {
+	explicit VxBbox( float value ) {
 		Max.x=value; Max.y=value; Max.z=value;
 		Min.x=-value; Min.y=-value; Min.z=-value;
 	}

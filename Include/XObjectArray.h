@@ -223,7 +223,7 @@ class XObjectPointerArray : public XArray<CKObject*>
 {
 public:
 	
-	XObjectPointerArray(const int iSize = 0):XArray<CKObject*>(iSize) {}
+	explicit XObjectPointerArray(const int iSize = 0):XArray<CKObject*>(iSize) {}
 
 
 /*******************************************************
