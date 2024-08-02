@@ -106,9 +106,9 @@ public:
 				T* newarray = Allocate(oldsize);
 				T* temp = newarray;
 
-				for(T* t = m_Begin; t != m_End; ++t) {
+				for(T* it = m_Begin; it != m_End; ++it) {
 					// we search for the element in the other array
-					if(a.Find(*t) == a.m_End) {
+					if(a.Find(*it) == a.m_End) {
 						// the element is not in the other array, we copy it to the newone
 						*temp = *it;
 						++temp;
