@@ -10,6 +10,7 @@
 #define CKMIDISOUND_H "$Id:$"
 
 #include "CKSound.h"
+#include "CKMidiManager.h"
 
 
 /**************************************************************************
