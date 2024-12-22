@@ -10,7 +10,7 @@
 #define CKPLACE_H "$Id:$"
 #ifndef CK_3DIMPLEMENTATION
 
-#include "CKBeObject.h"
+#include "CK3dEntity.h"
 #include "XObjectArray.h"
 
 
