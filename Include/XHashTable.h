@@ -49,6 +49,7 @@ must be extended and rehashed.
 template <class T,class K,class H = XHashFun<K>, class Eq = XEqual<K>/*, float L = 0.75f*/>
 class XHashTable
 {
+public:
 	// friendship
 	friend class Iterator;
 
@@ -63,7 +64,6 @@ class XHashTable
 	};
 
 	typedef Entry*			pEntry;
-public:
 
 	typedef XHashTable				Table;
 	typedef XHashTable*				pTable;
