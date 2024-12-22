@@ -59,6 +59,12 @@ template <class N, class L,class EqN = XEqual<N>, class EqL = XEqual<L> >
 class XNTree
 {
 public:
+	// node type enumeration
+	enum Type
+	{
+		NODE,
+		LEAF
+	};
 
 // Inner Classes
 
@@ -71,12 +77,6 @@ public:
 
 	public:
 
-		// node type enumeration
-		enum Type
-		{
-			NODE,
-			LEAF
-		};
 
 		INode*
 		GetParent() const
