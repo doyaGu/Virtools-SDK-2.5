@@ -9,7 +9,7 @@
 
 #define CKMESSAGE_H "$Id:$"
 
-#include "CKObject.h"
+#include "CKBeObject.h"
 
 
 typedef enum CK_MESSAGE_SENDINGTYPE {
