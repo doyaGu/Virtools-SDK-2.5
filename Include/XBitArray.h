@@ -9,7 +9,6 @@
 #define XBITARRAY_H  "$Id:$"
 
 #include "XArray.h"
-#include "VxMath.h"
 
 /************************************************
 {filename:XBitArray}
