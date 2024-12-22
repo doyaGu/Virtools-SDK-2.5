@@ -13,6 +13,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <Windows.h>
+#ifdef WIN32_LEAN_AND_MEAN
+#undef WIN32_LEAN_AND_MEAN
+#endif
+#endif
+
 #ifdef macintosh
 	#include "VxMacHeader.h"
 	#pragma cpp_extensions on
