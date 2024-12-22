@@ -10,6 +10,7 @@
 #define CKWAVESOUND_H "$Id:$"
 
 #include "CKSound.h"
+#include "CKSoundManager.h"
 
 class CKSoundReader;
 
