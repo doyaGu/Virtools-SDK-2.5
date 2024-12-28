@@ -240,7 +240,13 @@ See Also:CKContext::GetObject
   virtual CK_ID GetOwner() = 0;
 
 
-  CKLayer(CKContext *Context,CKSTRING name=NULL) : CKObject(Context,name) {}	
+  CKLayer(CKContext *Context,CKSTRING name=NULL) : CKObject(Context,name) {}
+
+	// Dynamic Cast method (returns NULL if the object can't be cast)
+    static CKLayer *Cast(CKObject *iO)
+    {
+        return CKIsChildClassOf(iO, CKCID_LAYER) ? (CKLayer *)iO : NULL;
+    }
 };
 
 #endif

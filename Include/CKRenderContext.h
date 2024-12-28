@@ -1301,6 +1301,12 @@ See also: SetViewRect
 	See also: SetViewRect
 	*****************************************************/
 	virtual	void 	ScreenToViewpoint(const Vx2DVector& i2DPosition, VxVector* o3DPosition, CKBOOL iScreen = TRUE) = 0;
+
+    // Dynamic Cast method (returns NULL if the object can't be cast)
+    static CKRenderContext *Cast(CKObject *iO)
+    {
+        return CKIsChildClassOf(iO, CKCID_RENDERCONTEXT) ? (CKRenderContext *)iO : NULL;
+    }
 };
 
 #endif 
