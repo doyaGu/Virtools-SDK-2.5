@@ -1,7 +1,6 @@
 #ifndef FIXEDSIZEALLOCATOR_H
 #define FIXEDSIZEALLOCATOR_H
 
-
 /////////////////////////////////////
 // XFixedSizeAllocator
 // created  : AGoTH
@@ -9,179 +8,182 @@
 //
 // This class os to allocate fixed size object
 // with a constant time allocation and deallocation
-#ifndef _WIN32_WCE 
-	#include <limits.h>
+#ifndef _WIN32_WCE
+#include <limits.h>
 
-	#undef new
-	#undef delete
+#undef new
+#undef delete
 
-	#include <new.h>
+#include <new.h>
 #endif
 
 #include "XBitArray.h"
 
-// 
+//
 class XFixedSizeAllocator
 {
 public:
-	enum {
-		DEFAULT_CHUNK_SIZE = 4096
-	};
+    enum
+    {
+        DEFAULT_CHUNK_SIZE = 4096
+    };
 
-	VX_EXPORT XFixedSizeAllocator(const int iBlockSize);
-	VX_EXPORT ~XFixedSizeAllocator();
-	
-	// return the number of allocated chunks
-	int			GetChunksCount()
-	{
-		return m_Chunks.Size();
-	}
+    VX_EXPORT XFixedSizeAllocator(const int iBlockSize);
+    VX_EXPORT ~XFixedSizeAllocator();
 
-	// return the number of allocated chunks
-	VX_EXPORT int			GetChunksTotalSize();
-	
-	// return the number of allocated chunks
-	VX_EXPORT int			GetChunksOccupation();
+    // return the number of allocated chunks
+    int GetChunksCount()
+    {
+        return m_Chunks.Size();
+    }
 
-	template <class T>
-	void		CallDtor(T* iDummy)
-	{
-		// we clear all the chunks
-		for (Chunks::Iterator it = m_Chunks.Begin(); it != m_Chunks.End(); ++it) {
-			it->CallDtor(iDummy,m_BlockSize,m_BlockCount);
-		}
-	}
-	
-	VX_EXPORT void		Clear();
+    // return the number of allocated chunks
+    VX_EXPORT int GetChunksTotalSize();
 
-	VX_EXPORT void*		Allocate();
+    // return the number of allocated chunks
+    VX_EXPORT int GetChunksOccupation();
 
-	VX_EXPORT void		Free(void* iP);
+    template <class T>
+    void CallDtor(T *iDummy)
+    {
+        // we clear all the chunks
+        for (Chunks::Iterator it = m_Chunks.Begin(); it != m_Chunks.End(); ++it)
+        {
+            it->CallDtor(iDummy, m_BlockSize, m_BlockCount);
+        }
+    }
+
+    VX_EXPORT void Clear();
+
+    VX_EXPORT void *Allocate();
+
+    VX_EXPORT void Free(void *iP);
 
 private:
-	class Chunk
-	{
-	public:
-		Chunk() {}
+    class Chunk
+    {
+    public:
+        Chunk() {}
 
-		void	Init(size_t iBlockSize, unsigned int iBlockCount);
-		
-		template <class T>
-		void		CallDtor(T* iDummy,size_t iBlockSize, unsigned int iBlockCount)
-		{
-			// everything is clear -> nothing to do
-			if (m_BlockAvailables == iBlockCount) 
-				return;
-			
-			// else we have some cleaning todo
+        void Init(size_t iBlockSize, unsigned int iBlockCount);
 
-			if (!m_BlockAvailables) { // we need to clean everything
+        template <class T>
+        void CallDtor(T *iDummy, size_t iBlockSize, unsigned int iBlockCount)
+        {
+            // everything is clear -> nothing to do
+            if (m_BlockAvailables == iBlockCount)
+                return;
 
-				{ // we call the dtor of the used blocks
-					for (unsigned int i=0; i<iBlockCount; ++i) {
+            // else we have some cleaning todo
 
-						unsigned char* p = m_Data + i*iBlockSize;
-						((T*)p)->~T();
-					}
-					
-				}
+            if (!m_BlockAvailables)
+            { // we need to clean everything
 
-			} else { // only some are used
+                { // we call the dtor of the used blocks
+                    for (unsigned int i = 0; i < iBlockCount; ++i)
+                    {
 
-				XBitArray freeBlocks;
+                        unsigned char *p = m_Data + i * iBlockSize;
+                        ((T *)p)->~T();
+                    }
+                }
+            }
+            else
+            { // only some are used
 
-				{ // we mark the objects used
-					int freeb = m_FirstAvailableBlock;
-					for (unsigned int i=0; i<m_BlockAvailables-1; ++i) {
+                XBitArray freeBlocks;
 
-						freeBlocks.Set(freeb);
-						
-						unsigned char* p = m_Data + freeb*iBlockSize;
-						freeb = *(int*)p;
-					}
-					freeBlocks.Set(freeb);
-				}
+                { // we mark the objects used
+                    int freeb = m_FirstAvailableBlock;
+                    for (unsigned int i = 0; i < m_BlockAvailables - 1; ++i)
+                    {
 
-				{ // we call the dtor of the used blocks
-					for (unsigned int i=0; i<iBlockCount; ++i) {
+                        freeBlocks.Set(freeb);
 
-						if (freeBlocks.IsSet(i))
-							continue;
-						
-						unsigned char* p = m_Data + i*iBlockSize;
-						((T*)p)->~T();
-					}
-					
-				}
-			}
+                        unsigned char *p = m_Data + freeb * iBlockSize;
+                        freeb = *(int *)p;
+                    }
+                    freeBlocks.Set(freeb);
+                }
 
-		}
+                { // we call the dtor of the used blocks
+                    for (unsigned int i = 0; i < iBlockCount; ++i)
+                    {
 
-		void	Destroy();
-		
-		void*	Allocate(size_t iBlockSize);
-		
-		void	Deallocate(void* iP, size_t iBlockSize);
-		
-		unsigned char*	m_Data;
-		unsigned int	m_FirstAvailableBlock;
-		unsigned int	m_BlockAvailables;
-		unsigned int	m_BlockCount;
-	};
+                        if (freeBlocks.IsSet(i))
+                            continue;
 
-	// types
-	typedef XArray<Chunk>	Chunks;
+                        unsigned char *p = m_Data + i * iBlockSize;
+                        ((T *)p)->~T();
+                    }
+                }
+            }
+        }
 
-	// function to find the chunk containing the ptr
-	Chunk*			FindChunk(void* iP);
+        void Destroy();
 
-	// members
+        void *Allocate(size_t iBlockSize);
 
-	// Block size
-	size_t			m_BlockSize;
-	// Blocks Count (per Chunk)
-	unsigned int	m_BlockCount;
+        void Deallocate(void *iP, size_t iBlockSize);
 
-	// the chunks
-	Chunks			m_Chunks;
+        unsigned char *m_Data;
+        unsigned int m_FirstAvailableBlock;
+        unsigned int m_BlockAvailables;
+        unsigned int m_BlockCount;
+    };
 
-	// Allocating and deallocating chunks
-	Chunk*			m_AChunk;
-	Chunk*			m_DChunk;
+    // types
+    typedef XArray<Chunk> Chunks;
 
+    // function to find the chunk containing the ptr
+    Chunk *FindChunk(void *iP);
+
+    // members
+
+    // Block size
+    size_t m_BlockSize;
+    // Blocks Count (per Chunk)
+    unsigned int m_BlockCount;
+
+    // the chunks
+    Chunks m_Chunks;
+
+    // Allocating and deallocating chunks
+    Chunk *m_AChunk;
+    Chunk *m_DChunk;
 };
 
-// 
+//
 template <class T>
 class XObjectPool
 {
 public:
-	XObjectPool(XBOOL iCallDtor = TRUE):m_Allocator(sizeof(T)),m_CallDtor(iCallDtor) {}
+    XObjectPool(XBOOL iCallDtor = TRUE) : m_Allocator(sizeof(T)), m_CallDtor(iCallDtor) {}
 
-	T*		Allocate()
-	{
-		return new (m_Allocator.Allocate()) T;
-	}
+    T *Allocate()
+    {
+        return new (m_Allocator.Allocate()) T;
+    }
 
-	void	Free(T* iP)
-	{
-		if (m_CallDtor)
-			iP->~T();
+    void Free(T *iP)
+    {
+        if (m_CallDtor)
+            iP->~T();
 
-		m_Allocator.Free(iP);
-	}
+        m_Allocator.Free(iP);
+    }
 
-	void	Clear()
-	{
-		if (m_CallDtor)
-			m_Allocator.CallDtor((T*)NULL);
+    void Clear()
+    {
+        if (m_CallDtor)
+            m_Allocator.CallDtor((T *)NULL);
 
-		m_Allocator.Clear();
-	}
+        m_Allocator.Clear();
+    }
 
 private:
-	XFixedSizeAllocator m_Allocator;
-	XBOOL				m_CallDtor;
+    XFixedSizeAllocator m_Allocator;
+    XBOOL m_CallDtor;
 };
 
 /*

@@ -5,9 +5,7 @@
 /*	Copyright (c) Virtools 1999, All Rights Reserved.					 */	
 /*************************************************************************/
 #ifndef CKENUMS_H
-
 #define CKENUMS_H "$Id:$"
-
 
 /***************************************************
 {filename:CK_OBJECT_FLAGS}
@@ -21,47 +19,47 @@ you should always use the specific acces function (given between ()) which may n
 See also: CKObject,CKObject::GetObjectFlags,CKObject::ModifyObjectFlags
 *************************************************/
 typedef enum CK_OBJECT_FLAGS {
-	CK_OBJECT_INTERFACEOBJ			=	 0x00000001,		// Reserved for Inteface Use
-	CK_OBJECT_PRIVATE				=	 0x00000002,		// The object must not be displayed in interface (Lists,Level view,etc...),nor should it be saved. (CKObject::IsPrivate()
-	CK_OBJECT_INTERFACEMARK			=	 0x00000004,		
-	CK_OBJECT_FREEID				=	 0x00000008,		// ID of this object can be released safely and is free to be reused by future CKobjects.
-	CK_OBJECT_TOBEDELETED			=	 0x00000010,		// This object is being deleted
-	CK_OBJECT_NOTTOBESAVED			=	 0x00000020,		// This object must not be saved 
-	CK_OBJECT_VISIBLE				=	 0x00000040,		// This object is visible (CKObject::Show)
-	CK_OBJECT_NAMESHARED			=	 0x00000080,		// This object has its name from another entity
-	CK_OBJECT_DYNAMIC				=	 0x00000108,		// This object may be created or deleted at run-time, it also contails CK_OBJECT_FREEID. (CKObject::IsDynamic,CKContext::CreateObject)
-	CK_OBJECT_HIERACHICALHIDE		=	 0x00000200,		// This object hides all its hierarchy (CKObject::Show)
-	CK_OBJECT_UPTODATE				=	 0x00000400,		// (Camera,etc..)
-	CK_OBJECT_TEMPMARKER			=	 0x00000800,		
-	CK_OBJECT_ONLYFORFILEREFERENCE	=	 0x00001000,		
-	CK_OBJECT_NOTTOBEDELETED		=	 0x00002000,		// This object must not be deleted in a clear all
-	CK_OBJECT_APPDATA				=	 0x00004000,		// This object has app data	
-	CK_OBJECT_SINGLEACTIVITY		=	 0x00008000,		// this object has an information of single activity
-	CK_OBJECT_LOADSKIPBEOBJECT		=	 0x00010000,		// When loading this object the CKBeObject part should be skipped
-	
-	CK_OBJECT_NOTTOBELISTEDANDSAVED	=	 0x00000023,		// Combination of Private and Not To Be Saved
+    CK_OBJECT_INTERFACEOBJ			=	 0x00000001,		// Reserved for Inteface Use
+    CK_OBJECT_PRIVATE				=	 0x00000002,		// The object must not be displayed in interface (Lists,Level view,etc...),nor should it be saved. (CKObject::IsPrivate()
+    CK_OBJECT_INTERFACEMARK			=	 0x00000004,		
+    CK_OBJECT_FREEID				=	 0x00000008,		// ID of this object can be released safely and is free to be reused by future CKobjects.
+    CK_OBJECT_TOBEDELETED			=	 0x00000010,		// This object is being deleted
+    CK_OBJECT_NOTTOBESAVED			=	 0x00000020,		// This object must not be saved 
+    CK_OBJECT_VISIBLE				=	 0x00000040,		// This object is visible (CKObject::Show)
+    CK_OBJECT_NAMESHARED			=	 0x00000080,		// This object has its name from another entity
+    CK_OBJECT_DYNAMIC				=	 0x00000108,		// This object may be created or deleted at run-time, it also contails CK_OBJECT_FREEID. (CKObject::IsDynamic,CKContext::CreateObject)
+    CK_OBJECT_HIERACHICALHIDE		=	 0x00000200,		// This object hides all its hierarchy (CKObject::Show)
+    CK_OBJECT_UPTODATE				=	 0x00000400,		// (Camera,etc..)
+    CK_OBJECT_TEMPMARKER			=	 0x00000800,		
+    CK_OBJECT_ONLYFORFILEREFERENCE	=	 0x00001000,		
+    CK_OBJECT_NOTTOBEDELETED		=	 0x00002000,		// This object must not be deleted in a clear all
+    CK_OBJECT_APPDATA				=	 0x00004000,		// This object has app data	
+    CK_OBJECT_SINGLEACTIVITY		=	 0x00008000,		// this object has an information of single activity
+    CK_OBJECT_LOADSKIPBEOBJECT		=	 0x00010000,		// When loading this object the CKBeObject part should be skipped
+    
+    CK_OBJECT_NOTTOBELISTEDANDSAVED	=	 0x00000023,		// Combination of Private and Not To Be Saved
 
 
 // The following flags are specific to parameters (they are stored here for object's size purposes )
-	CK_PARAMETEROUT_SETTINGS		=	0x00400000,			
-	CK_PARAMETEROUT_PARAMOP			=	0x00800000,			// This parameter is the output of a CKParameterOperation (Automatically set by Engine)
-	CK_PARAMETERIN_DISABLED			=	0x01000000,			// Parameter In or Out is disabled (CKBehavior::EnableInputParameter,CKBehavior::DisableInputParameter)	
-	CK_PARAMETERIN_THIS				=	0x02000000,			// Special parameter type : its value and type are always equal to its owner (CKParameter::SetAsMyselfParameter)
-	CK_PARAMETERIN_SHARED		    =	0x04000000,			
-	CK_PARAMETEROUT_DELETEAFTERUSE 	=	0x08000000,			// When adding parameters to CKMessage, they can be automatically deleted when message is released (CKMessage::AddParameter)
-	CK_OBJECT_PARAMMASK			  	=	0x0FC00000,			// Mask for options specific to parameters	
+    CK_PARAMETEROUT_SETTINGS		=	0x00400000,			
+    CK_PARAMETEROUT_PARAMOP			=	0x00800000,			// This parameter is the output of a CKParameterOperation (Automatically set by Engine)
+    CK_PARAMETERIN_DISABLED			=	0x01000000,			// Parameter In or Out is disabled (CKBehavior::EnableInputParameter,CKBehavior::DisableInputParameter)	
+    CK_PARAMETERIN_THIS				=	0x02000000,			// Special parameter type : its value and type are always equal to its owner (CKParameter::SetAsMyselfParameter)
+    CK_PARAMETERIN_SHARED		    =	0x04000000,			
+    CK_PARAMETEROUT_DELETEAFTERUSE 	=	0x08000000,			// When adding parameters to CKMessage, they can be automatically deleted when message is released (CKMessage::AddParameter)
+    CK_OBJECT_PARAMMASK			  	=	0x0FC00000,			// Mask for options specific to parameters	
 
 // The Following flags are specific	for Behavior ios (CKBehaviorIO)
-	CK_BEHAVIORIO_IN				=	0x10000000,		// This BehaviorIO is a behavior input  (CKBehaviorIO::SetType}
-	CK_BEHAVIORIO_OUT				=	0x20000000,		// This BehaviorIO is a behavior output (CKBehaviorIO::SetType)	
-	CK_BEHAVIORIO_ACTIVE			=	0x40000000,		// This BehaviorIO is a currently active (CKBehaviorIO::Activate}
-	CK_OBJECT_IOTYPEMASK		  	=	0x30000000,		
-	CK_OBJECT_IOMASK			  	=	0xF0000000,		
+    CK_BEHAVIORIO_IN				=	0x10000000,		// This BehaviorIO is a behavior input  (CKBehaviorIO::SetType}
+    CK_BEHAVIORIO_OUT				=	0x20000000,		// This BehaviorIO is a behavior output (CKBehaviorIO::SetType)	
+    CK_BEHAVIORIO_ACTIVE			=	0x40000000,		// This BehaviorIO is a currently active (CKBehaviorIO::Activate}
+    CK_OBJECT_IOTYPEMASK		  	=	0x30000000,		
+    CK_OBJECT_IOMASK			  	=	0xF0000000,		
 
-	// The Following flags are specific	for Behavior ios (CKBehaviorIO)
-	CKBEHAVIORLINK_RESERVED			=	0x10000000,		// This BehaviorIO is a behavior input  (CKBehaviorIO::SetType}
-	CKBEHAVIORLINK_ACTIVATEDLASTFRAME =	0x20000000,		// This link had been activated last frame
-	CK_OBJECT_BEHAVIORLINKMASK		=	0x30000000,		
+    // The Following flags are specific	for Behavior ios (CKBehaviorIO)
+    CKBEHAVIORLINK_RESERVED			=	0x10000000,		// This BehaviorIO is a behavior input  (CKBehaviorIO::SetType}
+    CKBEHAVIORLINK_ACTIVATEDLASTFRAME =	0x20000000,		// This link had been activated last frame
+    CK_OBJECT_BEHAVIORLINKMASK		=	0x30000000,		
 } CK_OBJECT_FLAGS;
 
 
@@ -69,28 +67,28 @@ typedef enum CK_OBJECT_FLAGS {
 {filename:CK_3DENTITY_FLAGS}
 Summary: 3dEntity Flags
 Remarks:
-	+ Flags give user and engine more information about the 3dEntity.
+    + Flags give user and engine more information about the 3dEntity.
 
 See also: CK3dEntity::SetFlags,CK3dEntity::GetFlags,
 *************************************************/
 typedef enum CK_3DENTITY_FLAGS {
-		CK_3DENTITY_DUMMY				=	0x00000001,		// Entity is a dummy used to represent a position
-		CK_3DENTITY_FRAME				=	0x00000002,		// Entity is a frame used to represent an orientation
-		CK_3DENTITY_RESERVED0			=	0x00000020,		// Obsolete Flag
-		CK_3DENTITY_TARGETLIGHT			=	0x00000100,		// Entity is a target of a light
-		CK_3DENTITY_TARGETCAMERA		=	0x00000200,		// Entity is a target of a camera
-		CK_3DENTITY_IGNOREANIMATION		=	0x00000400,		// Animation using this entity can't modify it
-		CK_3DENTITY_HIERARCHICALOBSTACLE=	0x00000800,		// Used by the Collision Manager
-		CK_3DENTITY_UPDATELASTFRAME     =   0x00001000,		// Store the last world matrix for this Entity after each render
-		CK_3DENTITY_CAMERAIGNOREASPECT  =   0x00002000,		// Ignore aspect ratio setting for cameras
-		CK_3DENTITY_DISABLESKINPROCESS	=   0x00004000,		// Force skin processing to be disabled
-		CK_3DENTITY_ENABLESKINOFFSET	=   0x00008000,		// If not set the skin stay attached to the bones the vertices are linked to, otherwise the skin can be freely rotated,translated or scaled according to its owner entity matrix.
-		CK_3DENTITY_PLACEVALID			=   0x00010000,		// Used internally when saving 
-		CK_3DENTITY_PARENTVALID			=	0x00020000,		// Used internally when saving 
-		CK_3DENTITY_IKJOINTVALID		=	0x00040000,		// Special flag for Bodyparts : IK Joint data is valid
-		CK_3DENTITY_PORTAL				=	0x00080000,		// The 3dEntity is a portal
-		CK_3DENTITY_ZORDERVALID			=	0x00100000,		// The 3dEntity has a non-zero ZOrder
-		CK_3DENTITY_CHARACTERDOPROCESS	=	0x80000000,		// Special flag for Characters : Automatic process of animation
+        CK_3DENTITY_DUMMY				=	0x00000001,		// Entity is a dummy used to represent a position
+        CK_3DENTITY_FRAME				=	0x00000002,		// Entity is a frame used to represent an orientation
+        CK_3DENTITY_RESERVED0			=	0x00000020,		// Obsolete Flag
+        CK_3DENTITY_TARGETLIGHT			=	0x00000100,		// Entity is a target of a light
+        CK_3DENTITY_TARGETCAMERA		=	0x00000200,		// Entity is a target of a camera
+        CK_3DENTITY_IGNOREANIMATION		=	0x00000400,		// Animation using this entity can't modify it
+        CK_3DENTITY_HIERARCHICALOBSTACLE=	0x00000800,		// Used by the Collision Manager
+        CK_3DENTITY_UPDATELASTFRAME     =   0x00001000,		// Store the last world matrix for this Entity after each render
+        CK_3DENTITY_CAMERAIGNOREASPECT  =   0x00002000,		// Ignore aspect ratio setting for cameras
+        CK_3DENTITY_DISABLESKINPROCESS	=   0x00004000,		// Force skin processing to be disabled
+        CK_3DENTITY_ENABLESKINOFFSET	=   0x00008000,		// If not set the skin stay attached to the bones the vertices are linked to, otherwise the skin can be freely rotated,translated or scaled according to its owner entity matrix.
+        CK_3DENTITY_PLACEVALID			=   0x00010000,		// Used internally when saving 
+        CK_3DENTITY_PARENTVALID			=	0x00020000,		// Used internally when saving 
+        CK_3DENTITY_IKJOINTVALID		=	0x00040000,		// Special flag for Bodyparts : IK Joint data is valid
+        CK_3DENTITY_PORTAL				=	0x00080000,		// The 3dEntity is a portal
+        CK_3DENTITY_ZORDERVALID			=	0x00100000,		// The 3dEntity has a non-zero ZOrder
+        CK_3DENTITY_CHARACTERDOPROCESS	=	0x80000000,		// Special flag for Characters : Automatic process of animation
 } CK_3DENTITY_FLAGS;
 
 
@@ -99,34 +97,34 @@ typedef enum CK_3DENTITY_FLAGS {
 Summary: 3dEntity additionnal flags Options
 
 Remarks:
-	+ The VX_MOVEABLE_FLAGS is used by CK3dEntity::SetMoveableFlags to specify different hints to the render engine about the entity.
-	+ The (Engine) flags are set by the render engine and should not be modified by user. They can be checked with the CK3dEntity::GetMoveableFlags method.
-	+ The (User) flags are to be set by the user or can be set by a specific method of CK3dEntity.
+    + The VX_MOVEABLE_FLAGS is used by CK3dEntity::SetMoveableFlags to specify different hints to the render engine about the entity.
+    + The (Engine) flags are set by the render engine and should not be modified by user. They can be checked with the CK3dEntity::GetMoveableFlags method.
+    + The (User) flags are to be set by the user or can be set by a specific method of CK3dEntity.
 
 See Also: CK3dEntity::SetMoveableFlags
 ******************************************************************/
 typedef enum VX_MOVEABLE_FLAGS { 
-		VX_MOVEABLE_PICKABLE				=0x00000001,	// (User)If not set this entity cannot be returned by CKRenderContext::Pick() or CKRenderContext::RectPict() functions.
-		VX_MOVEABLE_VISIBLE					=0x00000002,	// (Engine) See CKObject::Show,CK3dEntity::IsVisible
-		VX_MOVEABLE_UPTODATE				=0x00000004,	// (Engine) Used to Notify change in the data of the entity.
-		VX_MOVEABLE_RENDERCHANNELS			=0x00000008,	// (User) If not set, additional material channels on the mesh used by this entity won't be rendered (CK3dEntity::SetRenderChannels)	
-		VX_MOVEABLE_USERBOX					=0x00000010,	// (Engine) When CK3dEntity::SetBoundingBox is called with a user box, this flag is set.
-		VX_MOVEABLE_EXTENTSUPTODATE			=0x00000020,	// (Engine) Indicate that object 2D extents are up to date
-		VX_MOVEABLE_BOXVALID				=0x00004000,	// (Engine) If not set the moveable has no mesh associated so its bounding box is irrelevant (a point).
-		VX_MOVEABLE_RENDERLAST				=0x00010000,	// (User) If set the moveable will be rendered with the transparent objects (i.e in last) (CK3dEntity::SetRenderAsTransparent)
-		VX_MOVEABLE_HASMOVED				=0x00020000,	// (Engine) Set when its position or orientation has changed. (Reset every frame when rendering starts) 
-		VX_MOVEABLE_WORLDALIGNED			=0x00040000,	// (User) Hint for render engine : this object is aligned with world position and orientation.
-		VX_MOVEABLE_NOZBUFFERWRITE			=0x00080000,	// (User) Set by the user to warn Render Engine that this object must not write information to Z buffer
-		VX_MOVEABLE_RENDERFIRST				=0x00100000,	// (User) If set the moveable will be rendered within the firsts objects
-		VX_MOVEABLE_NOZBUFFERTEST			=0x00200000,	// (User) Set by the user to warn Render Engine that this object must not test against Z buffer (This override settings of all materials used by this Entity)
-		VX_MOVEABLE_INVERSEWORLDMATVALID	=0x00400000,	// (Engine) Inverse world matrix is not up to date and should be recomputed
-		VX_MOVEABLE_DONTUPDATEFROMPARENT	=0x00800000,	// (User) This object will not be updated by parent (neither World nor Local matrix wil be updated) . This flags can be used by physic engine for example in which hierarchy is not relevant for physicalised objects
-		VX_MOVEABLE_INDIRECTMATRIX			=0x01000000,	// (User/Engine) Set by the engine at load time  : The object matrix is in left hand referential, culling needs to be inverted
-		VX_MOVEABLE_ZBUFONLY				=0x02000000,	// (User) The object will only be rendered in depth buffer
-		VX_MOVEABLE_STENCILONLY				=0x04000000,	// (User) The object will only be rendered in stencil buffer
-		VX_MOVEABLE_HIERARCHICALHIDE		=0x10000000,	// (Engine) If Object has this flags and is hidden its children won't be rendered
-		VX_MOVEABLE_CHARACTERRENDERED		=0x20000000,	// (Engine) Set if a character was rendered last frame...
-		VX_MOVEABLE_RESERVED2				=0x40000000,	// (Engine)
+        VX_MOVEABLE_PICKABLE				=0x00000001,	// (User)If not set this entity cannot be returned by CKRenderContext::Pick() or CKRenderContext::RectPict() functions.
+        VX_MOVEABLE_VISIBLE					=0x00000002,	// (Engine) See CKObject::Show,CK3dEntity::IsVisible
+        VX_MOVEABLE_UPTODATE				=0x00000004,	// (Engine) Used to Notify change in the data of the entity.
+        VX_MOVEABLE_RENDERCHANNELS			=0x00000008,	// (User) If not set, additional material channels on the mesh used by this entity won't be rendered (CK3dEntity::SetRenderChannels)	
+        VX_MOVEABLE_USERBOX					=0x00000010,	// (Engine) When CK3dEntity::SetBoundingBox is called with a user box, this flag is set.
+        VX_MOVEABLE_EXTENTSUPTODATE			=0x00000020,	// (Engine) Indicate that object 2D extents are up to date
+        VX_MOVEABLE_BOXVALID				=0x00004000,	// (Engine) If not set the moveable has no mesh associated so its bounding box is irrelevant (a point).
+        VX_MOVEABLE_RENDERLAST				=0x00010000,	// (User) If set the moveable will be rendered with the transparent objects (i.e in last) (CK3dEntity::SetRenderAsTransparent)
+        VX_MOVEABLE_HASMOVED				=0x00020000,	// (Engine) Set when its position or orientation has changed. (Reset every frame when rendering starts) 
+        VX_MOVEABLE_WORLDALIGNED			=0x00040000,	// (User) Hint for render engine : this object is aligned with world position and orientation.
+        VX_MOVEABLE_NOZBUFFERWRITE			=0x00080000,	// (User) Set by the user to warn Render Engine that this object must not write information to Z buffer
+        VX_MOVEABLE_RENDERFIRST				=0x00100000,	// (User) If set the moveable will be rendered within the firsts objects
+        VX_MOVEABLE_NOZBUFFERTEST			=0x00200000,	// (User) Set by the user to warn Render Engine that this object must not test against Z buffer (This override settings of all materials used by this Entity)
+        VX_MOVEABLE_INVERSEWORLDMATVALID	=0x00400000,	// (Engine) Inverse world matrix is not up to date and should be recomputed
+        VX_MOVEABLE_DONTUPDATEFROMPARENT	=0x00800000,	// (User) This object will not be updated by parent (neither World nor Local matrix wil be updated) . This flags can be used by physic engine for example in which hierarchy is not relevant for physicalised objects
+        VX_MOVEABLE_INDIRECTMATRIX			=0x01000000,	// (User/Engine) Set by the engine at load time  : The object matrix is in left hand referential, culling needs to be inverted
+        VX_MOVEABLE_ZBUFONLY				=0x02000000,	// (User) The object will only be rendered in depth buffer
+        VX_MOVEABLE_STENCILONLY				=0x04000000,	// (User) The object will only be rendered in stencil buffer
+        VX_MOVEABLE_HIERARCHICALHIDE		=0x10000000,	// (Engine) If Object has this flags and is hidden its children won't be rendered
+        VX_MOVEABLE_CHARACTERRENDERED		=0x20000000,	// (Engine) Set if a character was rendered last frame...
+        VX_MOVEABLE_RESERVED2				=0x40000000,	// (Engine)
 } VX_MOVEABLE_FLAGS;
 
 
@@ -135,35 +133,35 @@ typedef enum VX_MOVEABLE_FLAGS {
 Summary:Mesh Flags Options
 
 Remarks:
-	+ The VXMESH_FLAGS is used by CKMesh::SetFlags to specify different hints to the render engine about the mesh.
-	+ Most of this flags can be set or asked using the appropriate method of CKMesh (given between () in the members documentation).
+    + The VXMESH_FLAGS is used by CKMesh::SetFlags to specify different hints to the render engine about the mesh.
+    + Most of this flags can be set or asked using the appropriate method of CKMesh (given between () in the members documentation).
 See Also: CKMesh,CKMesh::SetFlags
 ******************************************************************/
 typedef enum VXMESH_FLAGS
 {
-		VXMESH_BOUNDINGUPTODATE		= 0x00000001,	//	If set the bounding box is up to date (internal).
-		VXMESH_VISIBLE				= 0x00000002,	//	If not set the mesh will not be rendered (CKMesh::Show)
-		VXMESH_OPTIMIZED			= 0x00000004,	//	Set by the render engine if the mesh is optimized for rendering. Unset it to force to recreate optimized structures (when changing materials or face organization ) (CKMesh::VertexMove)
-		VXMESH_RENDERCHANNELS		= 0x00000008,	//  If not set  Additional material channels won't be rendered.
-		VXMESH_HASTRANSPARENCY		= 0x00000010,	//	If set indicates that one or more of the faces of this mesh use a transparent material (internal)
-		VXMESH_PRELITMODE			= 0x00000080,	//	If set, no lightning should occur for this mesh, vertex color should be used instead (CKMesh::SetLitMode)
-		VXMESH_WRAPU				= 0x00000100,	//	Texture coordinates wrapping among u texture coordinates. (CKMesh::SetWrapMode) 
-		VXMESH_WRAPV				= 0x00000200,	//	Texture coordinates wrapping among v texture coordinates. (CKMesh::SetWrapMode)
-		VXMESH_FORCETRANSPARENCY	= 0x00001000,	//	Forces this mesh to be considered as transparent even if no material is tranparent. (CKMesh::SetTransparent)
-		VXMESH_TRANSPARENCYUPTODATE	= 0x00002000,	//	If set, the flags VXMESH_HASTRANSPARENCY is up to date. (internal) 
-		VXMESH_UV_CHANGED			= 0x00004000,	//	Must be set if texture coordinates changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::UVChanged)
-		VXMESH_NORMAL_CHANGED		= 0x00008000,	//	Must be set if normal coordinates changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::NormalChanged)
-		VXMESH_COLOR_CHANGED		= 0x00010000,	//	Must be set if colors changed to enable the render engine to reconstruct potential display lists or vertex buffers.	(CKMesh::ColorChanged)
-		VXMESH_POS_CHANGED			= 0x00020000,	//	Must be set if vertex position changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::VertexMove)
-		VXMESH_HINTDYNAMIC			= 0x00040000,	//  Hint for render engine : Mesh geometry is updated frequently
-		VXMESH_GENNORMALS			= 0x00080000,	//  Hint : Normals were generated by BuildNormals : Do not save	(internal)
-		VXMESH_PROCEDURALUV			= 0x00100000,	//  Hint : UVs are generated : Do not save (internal)
-		VXMESH_PROCEDURALPOS		= 0x00200000,	//  Hint : Vertices postions are generated : Do not save (internal)
-		VXMESH_STRIPIFY				= 0x00400000,	//  If set the mesh will be stripified.
-		VXMESH_MONOMATERIAL			= 0x00800000,	//  Set by the render engine if the mesh use only one material.
-		VXMESH_PM_BUILDNORM			= 0x01000000,	//  Build normals when performing progressive meshing : Do not save (internal)
-		VXMESH_BWEIGHTS_CHANGED		= 0x02000000,	//	Must be set if vertex blend weights have changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::VertexMove)
-		VXMESH_ALLFLAGS				= 0x007FF39F
+        VXMESH_BOUNDINGUPTODATE		= 0x00000001,	//	If set the bounding box is up to date (internal).
+        VXMESH_VISIBLE				= 0x00000002,	//	If not set the mesh will not be rendered (CKMesh::Show)
+        VXMESH_OPTIMIZED			= 0x00000004,	//	Set by the render engine if the mesh is optimized for rendering. Unset it to force to recreate optimized structures (when changing materials or face organization ) (CKMesh::VertexMove)
+        VXMESH_RENDERCHANNELS		= 0x00000008,	//  If not set  Additional material channels won't be rendered.
+        VXMESH_HASTRANSPARENCY		= 0x00000010,	//	If set indicates that one or more of the faces of this mesh use a transparent material (internal)
+        VXMESH_PRELITMODE			= 0x00000080,	//	If set, no lightning should occur for this mesh, vertex color should be used instead (CKMesh::SetLitMode)
+        VXMESH_WRAPU				= 0x00000100,	//	Texture coordinates wrapping among u texture coordinates. (CKMesh::SetWrapMode) 
+        VXMESH_WRAPV				= 0x00000200,	//	Texture coordinates wrapping among v texture coordinates. (CKMesh::SetWrapMode)
+        VXMESH_FORCETRANSPARENCY	= 0x00001000,	//	Forces this mesh to be considered as transparent even if no material is tranparent. (CKMesh::SetTransparent)
+        VXMESH_TRANSPARENCYUPTODATE	= 0x00002000,	//	If set, the flags VXMESH_HASTRANSPARENCY is up to date. (internal) 
+        VXMESH_UV_CHANGED			= 0x00004000,	//	Must be set if texture coordinates changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::UVChanged)
+        VXMESH_NORMAL_CHANGED		= 0x00008000,	//	Must be set if normal coordinates changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::NormalChanged)
+        VXMESH_COLOR_CHANGED		= 0x00010000,	//	Must be set if colors changed to enable the render engine to reconstruct potential display lists or vertex buffers.	(CKMesh::ColorChanged)
+        VXMESH_POS_CHANGED			= 0x00020000,	//	Must be set if vertex position changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::VertexMove)
+        VXMESH_HINTDYNAMIC			= 0x00040000,	//  Hint for render engine : Mesh geometry is updated frequently
+        VXMESH_GENNORMALS			= 0x00080000,	//  Hint : Normals were generated by BuildNormals : Do not save	(internal)
+        VXMESH_PROCEDURALUV			= 0x00100000,	//  Hint : UVs are generated : Do not save (internal)
+        VXMESH_PROCEDURALPOS		= 0x00200000,	//  Hint : Vertices postions are generated : Do not save (internal)
+        VXMESH_STRIPIFY				= 0x00400000,	//  If set the mesh will be stripified.
+        VXMESH_MONOMATERIAL			= 0x00800000,	//  Set by the render engine if the mesh use only one material.
+        VXMESH_PM_BUILDNORM			= 0x01000000,	//  Build normals when performing progressive meshing : Do not save (internal)
+        VXMESH_BWEIGHTS_CHANGED		= 0x02000000,	//	Must be set if vertex blend weights have changed to enable the render engine to reconstruct potential display lists or vertex buffers. (CKMesh::VertexMove)
+        VXMESH_ALLFLAGS				= 0x007FF39F
 } VXMESH_FLAGS;
 
 
@@ -175,9 +173,9 @@ Remarks:
 To Document
 *************************************************/
 enum CKAXIS {
-		CKAXIS_X,
-		CKAXIS_Y,
-		CKAXIS_Z
+        CKAXIS_X,
+        CKAXIS_Y,
+        CKAXIS_Z
 };
 
 /*************************************************
@@ -188,27 +186,27 @@ Remarks:
 To Document 
 *************************************************/
 enum CKSUPPORT {
-		CKSUPPORT_FRONT,
-		CKSUPPORT_CENTER,
-		CKSUPPORT_BACK
+        CKSUPPORT_FRONT,
+        CKSUPPORT_CENTER,
+        CKSUPPORT_BACK
 };
 
 /*************************************************
 {filename:CKSPRITETEXT_ALIGNMENT}
 Summary: Sprite Text Alignment
 Remarks: 
-	+ Alignment attributes of the text in a CKSpriteText
+    + Alignment attributes of the text in a CKSpriteText
 
 See also: CKSpriteText, CKSpriteText::SetAlign
 *************************************************/
 typedef enum CKSPRITETEXT_ALIGNMENT {
-			CKSPRITETEXT_CENTER		=0x00000001,		// Text is centered when written in the sprite
-			CKSPRITETEXT_LEFT		=0x00000002,		// Text is aligned to the left of the sprite
-			CKSPRITETEXT_RIGHT		=0x00000004,		// Text is aligned to the right of the sprite
-			CKSPRITETEXT_TOP		=0x00000008,		// Text is aligned to the top of the sprite
-			CKSPRITETEXT_BOTTOM		=0x00000010,		// Text is aligned to the bottom of the sprite
-			CKSPRITETEXT_VCENTER	=0x00000020,		// Text is centered verticaly when written in the sprite
-			CKSPRITETEXT_HCENTER 	=0x00000040,		// Text is centered horizontaly when written in the sprite
+            CKSPRITETEXT_CENTER		=0x00000001,		// Text is centered when written in the sprite
+            CKSPRITETEXT_LEFT		=0x00000002,		// Text is aligned to the left of the sprite
+            CKSPRITETEXT_RIGHT		=0x00000004,		// Text is aligned to the right of the sprite
+            CKSPRITETEXT_TOP		=0x00000008,		// Text is aligned to the top of the sprite
+            CKSPRITETEXT_BOTTOM		=0x00000010,		// Text is aligned to the bottom of the sprite
+            CKSPRITETEXT_VCENTER	=0x00000020,		// Text is centered verticaly when written in the sprite
+            CKSPRITETEXT_HCENTER 	=0x00000040,		// Text is centered horizontaly when written in the sprite
 } CKSPRITETEXT_ALIGNMENT;
 
 
@@ -218,16 +216,16 @@ typedef enum CKSPRITETEXT_ALIGNMENT {
 Summary: Wrapping Flags
 
 Remarks:
-	+ The VXTEXTURE_WRAPMODE is used by CKMesh::SetWrapMode() to specify how
-	texture coordinates are interpolated.
+    + The VXTEXTURE_WRAPMODE is used by CKMesh::SetWrapMode() to specify how
+    texture coordinates are interpolated.
 See Also: Using Materials,CKMaterial,CKMesh::SetWrapMode.
 ****************************************************************/
 typedef enum VXTEXTURE_WRAPMODE
 {
-	VXTEXTUREWRAP_NONE = 0x00000000,	// Flat texture addressing
-	VXTEXTUREWRAP_U	   = 0x00000001,	// Vertical	cylinder mapping
-	VXTEXTUREWRAP_V	   = 0x00000002,	// Horizontal cylinder mapping
-	VXTEXTUREWRAP_UV   = 0x00000003,	// Spherical mapping
+    VXTEXTUREWRAP_NONE = 0x00000000,	// Flat texture addressing
+    VXTEXTUREWRAP_U	   = 0x00000001,	// Vertical	cylinder mapping
+    VXTEXTUREWRAP_V	   = 0x00000002,	// Horizontal cylinder mapping
+    VXTEXTUREWRAP_UV   = 0x00000003,	// Spherical mapping
 } VXTEXTURE_WRAPMODE;
 
 
@@ -238,15 +236,15 @@ typedef enum VXTEXTURE_WRAPMODE
 Summary: Sprite3D Orientation Options
 
 Remarks:
-	+ The VXSPRITE3D_TYPE is used by CKSprite3D::SetMode to specify how the orientation of the sprite3D is calculated.
+    + The VXSPRITE3D_TYPE is used by CKSprite3D::SetMode to specify how the orientation of the sprite3D is calculated.
 See Also: CKSprite3D::SetMode,CKSprite3D::GetMode
 ******************************************************************/
 typedef enum VXSPRITE3D_TYPE
 {
-	VXSPRITE3D_BILLBOARD = 0,		// Orientation is set to always face the camera
-	VXSPRITE3D_XROTATE,				// Orientation is set to face the camera but X axis is locked.
-	VXSPRITE3D_YROTATE,				// Orientation is set to face the camera but Y axis is locked (typically a tree for example).
-	VXSPRITE3D_ORIENTABLE,			// Orientation of the sprite3D is free
+    VXSPRITE3D_BILLBOARD = 0,		// Orientation is set to always face the camera
+    VXSPRITE3D_XROTATE,				// Orientation is set to face the camera but X axis is locked.
+    VXSPRITE3D_YROTATE,				// Orientation is set to face the camera but Y axis is locked (typically a tree for example).
+    VXSPRITE3D_ORIENTABLE,			// Orientation of the sprite3D is free
 } VXSPRITE3D_TYPE;
 
 
@@ -260,8 +258,8 @@ See Also: CKMaterial,CKMesh
 ******************************************************************/
 typedef enum VXMESH_LITMODE
 {
-	 VX_PRELITMESH = 0,		// Lighting use color information store with vertices
-	 VX_LITMESH	   = 1,		// Lighting is done by renderer using normals and face material information. 
+     VX_PRELITMESH = 0,		// Lighting use color information store with vertices
+     VX_LITMESH	   = 1,		// Lighting is done by renderer using normals and face material information. 
 } VXMESH_LITMODE;
 
 
@@ -271,17 +269,17 @@ typedef enum VXMESH_LITMODE
 Summary:Mesh additionnal material channel options
 
 Remarks:
-	+ The VXCHANNEL_FLAGS is used by CKMesh::SetChannelFlags to give the behavior of 
-	an additional material channel.
+    + The VXCHANNEL_FLAGS is used by CKMesh::SetChannelFlags to give the behavior of 
+    an additional material channel.
 See Also: CKMesh,CKMesh::AddChannel,CKMesh::IsChannelLit,CKMesh::IsChannelActive
 ******************************************************************/
 typedef enum VXCHANNEL_FLAGS {
-	VXCHANNEL_ACTIVE	=	0x00000001,		// This channel is active
-	VXCHANNEL_SAMEUV	=	0x00800000,		// This channel should use the texture coordinates of the base mesh.
-	VXCHANNEL_NOTLIT	=	0x01000000,		// Additionnal Material Channel should not be lit (some channels may not be rendered in one pass with this option)
-	VXCHANNEL_MONO		=	0x02000000,		// Set at runtime by render engine to indicate whether this channel was rendered using multiple pass or not.(Dot Not Modify)
-	VXCHANNEL_RESERVED1  =	0x04000000,		// Reserved for internal use
-	VXCHANNEL_LAST		=	0x08000000,		// Set at runtime by render engine to indicate this channel isthe last to be rendered. Dot Not Modify 
+    VXCHANNEL_ACTIVE	=	0x00000001,		// This channel is active
+    VXCHANNEL_SAMEUV	=	0x00800000,		// This channel should use the texture coordinates of the base mesh.
+    VXCHANNEL_NOTLIT	=	0x01000000,		// Additionnal Material Channel should not be lit (some channels may not be rendered in one pass with this option)
+    VXCHANNEL_MONO		=	0x02000000,		// Set at runtime by render engine to indicate whether this channel was rendered using multiple pass or not.(Dot Not Modify)
+    VXCHANNEL_RESERVED1  =	0x04000000,		// Reserved for internal use
+    VXCHANNEL_LAST		=	0x08000000,		// Set at runtime by render engine to indicate this channel isthe last to be rendered. Dot Not Modify 
 } VXCHANNEL_FLAGS;
 
 /****************************************************************
@@ -289,24 +287,24 @@ typedef enum VXCHANNEL_FLAGS {
 Summary: Global Shade Mode
 
 Remarks:
-	+ The VxShadeType describes a global render mode which is used for all objects in a context.
+    + The VxShadeType describes a global render mode which is used for all objects in a context.
 See Also: CKRenderContext::SetGlobalRenderMode
 ****************************************************************/
 typedef enum VxShadeType
 {
-	WireFrame		=0,		// Rendering will use settings of materials for rendering
-	FlatShading		=1,		// All Objects will be rendered	using flat shading
-	GouraudShading	=2,		// All Objects will be rendered	using gouraud shading
-	PhongShading	=3,		// All Objects will be rendered	using phong	shading
-	MaterialDefault	=4		// All Objects will be rendered	using their own shade mode
+    WireFrame		=0,		// Rendering will use settings of materials for rendering
+    FlatShading		=1,		// All Objects will be rendered	using flat shading
+    GouraudShading	=2,		// All Objects will be rendered	using gouraud shading
+    PhongShading	=3,		// All Objects will be rendered	using phong	shading
+    MaterialDefault	=4		// All Objects will be rendered	using their own shade mode
 } VxShadeType;
 
 
 
 
 typedef enum CK_SCENE_FLAGS {
-			CK_SCENE_LAUNCHEDONCE			=0x00000001,		// Set after the scene was initialised
-			CK_SCENE_USEENVIRONMENTSETTINGS	=0x00000002,		// Use the env. values on scene activation
+            CK_SCENE_LAUNCHEDONCE			=0x00000001,		// Set after the scene was initialised
+            CK_SCENE_USEENVIRONMENTSETTINGS	=0x00000002,		// Use the env. values on scene activation
 }	CK_SCENE_FLAGS;
 
 
@@ -314,43 +312,43 @@ typedef enum CK_SCENE_FLAGS {
 {filename:CK_BEHAVIOR_FLAGS}
 Summary: Flags settings for behaviors.
 Remarks:
-	+ When creating a prototype, you can precise various flags
-	about how your behavior will act: whether it will send or receive message, 
-	does the user may add inputs,outputs or parameters, is it active, etc. 
+    + When creating a prototype, you can precise various flags
+    about how your behavior will act: whether it will send or receive message, 
+    does the user may add inputs,outputs or parameters, is it active, etc. 
 
 See also: CKBehaviorPrototype::SetBehaviorFlags,Behavior Prototype Creation
 **********************************************************/
 typedef enum CK_BEHAVIOR_FLAGS {
-			CKBEHAVIOR_NONE							=0x00000000,	// Reserved for future use
-			CKBEHAVIOR_ACTIVE						=0x00000001,	// This behavior is active
-			CKBEHAVIOR_SCRIPT						=0x00000002,	// This behavior is a script
-			CKBEHAVIOR_RESERVED1					=0x00000004,	// Reserved for internal use.
-			CKBEHAVIOR_USEFUNCTION					=0x00000008,	// Behavior uses a function and not a graph
-			CKBEHAVIOR_RESERVED2					=0x00000010,	// Reserved for internal use.
-			CKBEHAVIOR_CUSTOMSETTINGSEDITDIALOG		=0x00000020,	// Behavior has a custom Dialog Box for settings edition .
-			CKBEHAVIOR_WAITSFORMESSAGE				=0x00000040,	// Behavior is waiting for a message to activate one of its outputs
-			CKBEHAVIOR_VARIABLEINPUTS				=0x00000080,	// Behavior may have its inputs changed by editing them
-			CKBEHAVIOR_VARIABLEOUTPUTS				=0x00000100,	// Behavior may have its outputs changed by editing them
-			CKBEHAVIOR_VARIABLEPARAMETERINPUTS		=0x00000200,	// Behavior may have its number of input parameters changed by editing them
-			CKBEHAVIOR_VARIABLEPARAMETEROUTPUTS		=0x00000400,	// Behavior may have its number of output parameters changed by editing them
-			CKBEHAVIOR_TOPMOST						=0x00004000,	// No other Behavior includes this one
-			CKBEHAVIOR_BUILDINGBLOCK				=0x00008000,	// This Behavior is a building block. Automatically set by the engine when coming from a DLL.
-			CKBEHAVIOR_MESSAGESENDER				=0x00010000,	// Behavior may send messages during its execution.
-			CKBEHAVIOR_MESSAGERECEIVER				=0x00020000,	// Behavior may check messages during its execution.
-			CKBEHAVIOR_TARGETABLE					=0x00040000,	// Behavior may be owned by a different object that the one to which its execution will apply.
-			CKBEHAVIOR_CUSTOMEDITDIALOG				=0x00080000,	// This Behavior have a custom Dialog Box for parameters edition .
-			CKBEHAVIOR_RESERVED0					=0x00100000,	// Reserved for internal use.
-			CKBEHAVIOR_EXECUTEDLASTFRAME			=0x00200000,	// This behavior has been executed during last process. (Available only in profile mode )
-			CKBEHAVIOR_DEACTIVATENEXTFRAME			=0x00400000,	// Behavior will be deactivated next frame
-			CKBEHAVIOR_RESETNEXTFRAME				=0x00800000,	// Behavior will be reseted next frame
-			CKBEHAVIOR_INTERNALLYCREATEDINPUTS		=0x01000000,	// Behavior execution may create/delete inputs
-			CKBEHAVIOR_INTERNALLYCREATEDOUTPUTS		=0x02000000,	// Behavior execution may create/delete outputs
-			CKBEHAVIOR_INTERNALLYCREATEDINPUTPARAMS	=0x04000000,	// Behavior execution may create/delete input parameters or change their type
-			CKBEHAVIOR_INTERNALLYCREATEDOUTPUTPARAMS=0x08000000,	// Behavior execution may create/delete output parameters or change their type
-			CKBEHAVIOR_INTERNALLYCREATEDLOCALPARAMS	=0x40000000,	// Behavior execution may create/delete local parameters or change their type
-			CKBEHAVIOR_ACTIVATENEXTFRAME			=0x10000000,	// Behavior will be activated next frame
-			CKBEHAVIOR_LOCKED						=0x20000000,	// Behavior is locked for utilisation in Virtools
-			CKBEHAVIOR_LAUNCHEDONCE					=0x80000000,	// Behavior has not yet been launched...
+            CKBEHAVIOR_NONE							=0x00000000,	// Reserved for future use
+            CKBEHAVIOR_ACTIVE						=0x00000001,	// This behavior is active
+            CKBEHAVIOR_SCRIPT						=0x00000002,	// This behavior is a script
+            CKBEHAVIOR_RESERVED1					=0x00000004,	// Reserved for internal use.
+            CKBEHAVIOR_USEFUNCTION					=0x00000008,	// Behavior uses a function and not a graph
+            CKBEHAVIOR_RESERVED2					=0x00000010,	// Reserved for internal use.
+            CKBEHAVIOR_CUSTOMSETTINGSEDITDIALOG		=0x00000020,	// Behavior has a custom Dialog Box for settings edition .
+            CKBEHAVIOR_WAITSFORMESSAGE				=0x00000040,	// Behavior is waiting for a message to activate one of its outputs
+            CKBEHAVIOR_VARIABLEINPUTS				=0x00000080,	// Behavior may have its inputs changed by editing them
+            CKBEHAVIOR_VARIABLEOUTPUTS				=0x00000100,	// Behavior may have its outputs changed by editing them
+            CKBEHAVIOR_VARIABLEPARAMETERINPUTS		=0x00000200,	// Behavior may have its number of input parameters changed by editing them
+            CKBEHAVIOR_VARIABLEPARAMETEROUTPUTS		=0x00000400,	// Behavior may have its number of output parameters changed by editing them
+            CKBEHAVIOR_TOPMOST						=0x00004000,	// No other Behavior includes this one
+            CKBEHAVIOR_BUILDINGBLOCK				=0x00008000,	// This Behavior is a building block. Automatically set by the engine when coming from a DLL.
+            CKBEHAVIOR_MESSAGESENDER				=0x00010000,	// Behavior may send messages during its execution.
+            CKBEHAVIOR_MESSAGERECEIVER				=0x00020000,	// Behavior may check messages during its execution.
+            CKBEHAVIOR_TARGETABLE					=0x00040000,	// Behavior may be owned by a different object that the one to which its execution will apply.
+            CKBEHAVIOR_CUSTOMEDITDIALOG				=0x00080000,	// This Behavior have a custom Dialog Box for parameters edition .
+            CKBEHAVIOR_RESERVED0					=0x00100000,	// Reserved for internal use.
+            CKBEHAVIOR_EXECUTEDLASTFRAME			=0x00200000,	// This behavior has been executed during last process. (Available only in profile mode )
+            CKBEHAVIOR_DEACTIVATENEXTFRAME			=0x00400000,	// Behavior will be deactivated next frame
+            CKBEHAVIOR_RESETNEXTFRAME				=0x00800000,	// Behavior will be reseted next frame
+            CKBEHAVIOR_INTERNALLYCREATEDINPUTS		=0x01000000,	// Behavior execution may create/delete inputs
+            CKBEHAVIOR_INTERNALLYCREATEDOUTPUTS		=0x02000000,	// Behavior execution may create/delete outputs
+            CKBEHAVIOR_INTERNALLYCREATEDINPUTPARAMS	=0x04000000,	// Behavior execution may create/delete input parameters or change their type
+            CKBEHAVIOR_INTERNALLYCREATEDOUTPUTPARAMS=0x08000000,	// Behavior execution may create/delete output parameters or change their type
+            CKBEHAVIOR_INTERNALLYCREATEDLOCALPARAMS	=0x40000000,	// Behavior execution may create/delete local parameters or change their type
+            CKBEHAVIOR_ACTIVATENEXTFRAME			=0x10000000,	// Behavior will be activated next frame
+            CKBEHAVIOR_LOCKED						=0x20000000,	// Behavior is locked for utilisation in Virtools
+            CKBEHAVIOR_LAUNCHEDONCE					=0x80000000,	// Behavior has not yet been launched...
 }	CK_BEHAVIOR_FLAGS;            
 
 
@@ -358,36 +356,36 @@ typedef enum CK_BEHAVIOR_FLAGS {
 {filename:CK_BEHAVIOR_CALLBACKMASK}
 Summary: Mask for the messages the callback function of a behavior should be aware of.
 Remarks: 
-	+ The callback function of a behavior may ignore some messages using this mask. 
-	+ Don't forget to set the mask for the behavior callback function if you use one since it
-	can improve performance not to receive useless messages.
+    + The callback function of a behavior may ignore some messages using this mask. 
+    + Don't forget to set the mask for the behavior callback function if you use one since it
+    can improve performance not to receive useless messages.
 
 See also: CKBehaviorPrototype::SetBehaviorCallbackFct,Behavior Prototype Creation
 *************************************************/
 typedef enum CK_BEHAVIOR_CALLBACKMASK {
-		CKCB_BEHAVIORPRESAVE		=0x00000001,	// Callback will be called for CKM_BEHAVIORPRESAVE messages 
-		CKCB_BEHAVIORDELETE			=0x00000002,	// Callback will be called for CKM_BEHAVIORDELETE messages
-		CKCB_BEHAVIORATTACH			=0x00000004,	// Callback will be called for CKM_BEHAVIORATTACH messages
-		CKCB_BEHAVIORDETACH			=0x00000008,	// Callback will be called for CKM_BEHAVIORDETACH messages
-		CKCB_BEHAVIORPAUSE			=0x00000010,	// Callback will be called for CKM_BEHAVIORPAUSE messages
-		CKCB_BEHAVIORRESUME			=0x00000020,	// Callback will be called for CKM_BEHAVIORRESUME messages
-		CKCB_BEHAVIORCREATE			=0x00000040,	// Callback will be called for CKM_BEHAVIORCREATE messages
-		CKCB_BEHAVIORRESET			=0x00001000,	// Callback will be called for CKM_BEHAVIORRESET messages
-		CKCB_BEHAVIORPOSTSAVE		=0x00000100,	// Callback will be called for CKM_BEHAVIORPOSTSAVE messages
-		CKCB_BEHAVIORLOAD			=0x00000200,	// Callback will be called for CKM_BEHAVIORLOAD messages
-		CKCB_BEHAVIOREDITED			=0x00000400,	// Callback will be called for CKM_BEHAVIOREDITED messages
-		CKCB_BEHAVIORSETTINGSEDITED	=0x00000800,	// Callback will be called for CKM_BEHAVIORSETTINGSEDITED messages
-		CKCB_BEHAVIORREADSTATE		=0x00001000,	// Callback will be called for CKM_BEHAVIORREADSTATE messages
-		CKCB_BEHAVIORNEWSCENE		=0x00002000,	// Callback will be called for CKM_BEHAVIORNEWSCENE messages
-		CKCB_BEHAVIORACTIVATESCRIPT	=0x00004000,	// Callback will be called for CKM_BEHAVIORACTIVATESCRIPT messages
-		CKCB_BEHAVIORDEACTIVATESCRIPT=0x00008000,	// Callback will be called for CKM_BEHAVIORDEACTIVATESCRIPT messages
-		CKCB_BEHAVIORRESETINBREAKPOINT=0x00010000,	// Callback will be called for CKM_BEHAVIORRESETINBREAKPOINT messages
+        CKCB_BEHAVIORPRESAVE		=0x00000001,	// Callback will be called for CKM_BEHAVIORPRESAVE messages 
+        CKCB_BEHAVIORDELETE			=0x00000002,	// Callback will be called for CKM_BEHAVIORDELETE messages
+        CKCB_BEHAVIORATTACH			=0x00000004,	// Callback will be called for CKM_BEHAVIORATTACH messages
+        CKCB_BEHAVIORDETACH			=0x00000008,	// Callback will be called for CKM_BEHAVIORDETACH messages
+        CKCB_BEHAVIORPAUSE			=0x00000010,	// Callback will be called for CKM_BEHAVIORPAUSE messages
+        CKCB_BEHAVIORRESUME			=0x00000020,	// Callback will be called for CKM_BEHAVIORRESUME messages
+        CKCB_BEHAVIORCREATE			=0x00000040,	// Callback will be called for CKM_BEHAVIORCREATE messages
+        CKCB_BEHAVIORRESET			=0x00001000,	// Callback will be called for CKM_BEHAVIORRESET messages
+        CKCB_BEHAVIORPOSTSAVE		=0x00000100,	// Callback will be called for CKM_BEHAVIORPOSTSAVE messages
+        CKCB_BEHAVIORLOAD			=0x00000200,	// Callback will be called for CKM_BEHAVIORLOAD messages
+        CKCB_BEHAVIOREDITED			=0x00000400,	// Callback will be called for CKM_BEHAVIOREDITED messages
+        CKCB_BEHAVIORSETTINGSEDITED	=0x00000800,	// Callback will be called for CKM_BEHAVIORSETTINGSEDITED messages
+        CKCB_BEHAVIORREADSTATE		=0x00001000,	// Callback will be called for CKM_BEHAVIORREADSTATE messages
+        CKCB_BEHAVIORNEWSCENE		=0x00002000,	// Callback will be called for CKM_BEHAVIORNEWSCENE messages
+        CKCB_BEHAVIORACTIVATESCRIPT	=0x00004000,	// Callback will be called for CKM_BEHAVIORACTIVATESCRIPT messages
+        CKCB_BEHAVIORDEACTIVATESCRIPT=0x00008000,	// Callback will be called for CKM_BEHAVIORDEACTIVATESCRIPT messages
+        CKCB_BEHAVIORRESETINBREAKPOINT=0x00010000,	// Callback will be called for CKM_BEHAVIORRESETINBREAKPOINT messages
 
-		CKCB_BEHAVIORBASE			=0x0000000E,	// Base flags :attach /detach /delete
-		CKCB_BEHAVIORSAVELOAD		=0x00000301,	// Base flags for load and save
-		CKCB_BEHAVIORPPR			=0x00000130,	// Base flags for play/pause/reset
-		CKCB_BEHAVIOREDITIONS		=0x00000C00,	// Base flags for editions of settings or parameters
-		CKCB_BEHAVIORALL			=0xFFFFFFFF,	// All flags 
+        CKCB_BEHAVIORBASE			=0x0000000E,	// Base flags :attach /detach /delete
+        CKCB_BEHAVIORSAVELOAD		=0x00000301,	// Base flags for load and save
+        CKCB_BEHAVIORPPR			=0x00000130,	// Base flags for play/pause/reset
+        CKCB_BEHAVIOREDITIONS		=0x00000C00,	// Base flags for editions of settings or parameters
+        CKCB_BEHAVIORALL			=0xFFFFFFFF,	// All flags 
 } CK_BEHAVIOR_CALLBACKMASK;
 
 
@@ -396,33 +394,33 @@ typedef enum CK_BEHAVIOR_CALLBACKMASK {
 {filename:CK_BEHAVIOR_RETURN}
 Summary: Return value for the behavior execution function.
 Remarks: 
-	+ Return value of a behavior execution function is used to activate it
-	the next frame and handle errors.
+    + Return value of a behavior execution function is used to activate it
+    the next frame and handle errors.
 
-	+ A return value with _RETRY (CKBR_ACTIVATENEXTFRAME bit set) forces the behavior to be reactivated next frame.
+    + A return value with _RETRY (CKBR_ACTIVATENEXTFRAME bit set) forces the behavior to be reactivated next frame.
 
 See also: CKBehaviorPrototype::SetFunction
 *************************************************/
 typedef enum CK_BEHAVIOR_RETURN
 {
-	CKBR_OK						= 0,		// Everything's ok. Behavior is deactivated unless one of its inputs is active.
-	CKBR_ACTIVATENEXTFRAME		= 1,		// The behavior will be reactivated  next frame
-	CKBR_ATTACHFAILED			= 2,		// The attach failed
-	CKBR_DETACHFAILED			= 4,		// The attach failed
-	CKBR_LOCKED					= 6,		// The behavior is locked
-	CKBR_INFINITELOOP			= 8,		// The behavior is locked
-	CKBR_BREAK					= 10,		// Break the processing here => Keep on processing windows messages but keep on calling the behavior until 
-											// it returns a different value (Used by script debugger )
-	CKBR_GENERICERROR			= 0xA000,	// Something went wrong
-	CKBR_BEHAVIORERROR			= 0xA002,	// The behavior gave to the code was wrong
-	CKBR_OWNERERROR				= 0xA004,	// The owner isn't what it should be
-	CKBR_PARAMETERERROR			= 0xA008,	// Some of the parameters are wrong
-	CKBR_GENERICERROR_RETRY		= 0xA001,
-	CKBR_BEHAVIORERROR_RETRY	= 0xA003,
-	CKBR_OWNERERROR_RETRY		= 0xA005,
-	CKBR_PARAMETERERROR_RETRY	= 0xA009,
-	
-	
+    CKBR_OK						= 0,		// Everything's ok. Behavior is deactivated unless one of its inputs is active.
+    CKBR_ACTIVATENEXTFRAME		= 1,		// The behavior will be reactivated  next frame
+    CKBR_ATTACHFAILED			= 2,		// The attach failed
+    CKBR_DETACHFAILED			= 4,		// The attach failed
+    CKBR_LOCKED					= 6,		// The behavior is locked
+    CKBR_INFINITELOOP			= 8,		// The behavior is locked
+    CKBR_BREAK					= 10,		// Break the processing here => Keep on processing windows messages but keep on calling the behavior until 
+                                            // it returns a different value (Used by script debugger )
+    CKBR_GENERICERROR			= 0xA000,	// Something went wrong
+    CKBR_BEHAVIORERROR			= 0xA002,	// The behavior gave to the code was wrong
+    CKBR_OWNERERROR				= 0xA004,	// The owner isn't what it should be
+    CKBR_PARAMETERERROR			= 0xA008,	// Some of the parameters are wrong
+    CKBR_GENERICERROR_RETRY		= 0xA001,
+    CKBR_BEHAVIORERROR_RETRY	= 0xA003,
+    CKBR_OWNERERROR_RETRY		= 0xA005,
+    CKBR_PARAMETERERROR_RETRY	= 0xA009,
+    
+    
 } CK_BEHAVIOR_RETURN;
 
 
@@ -430,14 +428,14 @@ typedef enum CK_BEHAVIOR_RETURN
 {filename:CK_BEHAVIOR_TYPE}
 Summary: Behavior Type.
 Remarks: 
-	+ Behaviors may be scripts, simpliest behaviors (a function) or elaborated graphs of sub-behaviors.
+    + Behaviors may be scripts, simpliest behaviors (a function) or elaborated graphs of sub-behaviors.
 
 See also: CKBehavior::GetType
 *************************************************/
 typedef enum CK_BEHAVIOR_TYPE {
-			CKBEHAVIORTYPE_BASE						=0x00000000,	// This Behavior is a most simple type of behavior ( a function )
-			CKBEHAVIORTYPE_SCRIPT					=0x00000001,	// This Behavior is a script
-			CKBEHAVIORTYPE_BEHAVIOR					=0x00000004,	// This Behavior is a simple one ( a graph )
+            CKBEHAVIORTYPE_BASE						=0x00000000,	// This Behavior is a most simple type of behavior ( a function )
+            CKBEHAVIORTYPE_SCRIPT					=0x00000001,	// This Behavior is a script
+            CKBEHAVIORTYPE_BEHAVIOR					=0x00000004,	// This Behavior is a simple one ( a graph )
 }	CK_BEHAVIOR_TYPE;
 
 /*************************************************
@@ -445,30 +443,30 @@ typedef enum CK_BEHAVIOR_TYPE {
 Summary: 2DEntity Flags
 
 Remarks:
-	Flags specify how an entity should be drawn to screen.
+    Flags specify how an entity should be drawn to screen.
 See also: CK2dEntity, CK2dEntity::SetFlags
 *************************************************/
 typedef enum CK_2DENTITY_FLAGS {
-			CK_2DENTITY_RESERVED3=			   0x00000001,	
-			CK_2DENTITY_POSITIONCHANGED=	   0x00000002,	// Position changed since last frame (used internally)
-			CK_2DENTITY_SIZECHANGED=		   0x00000004,	// Size changed since last frame (used internally) 
-			CK_2DENTITY_USESIZE=			   0x00000008,	// Force entity to use given size
-			CK_2DENTITY_VIRTOOLS=			   0x00000010,	// Entity created and used by the interface
-			CK_2DENTITY_USESRCRECT=			   0x00000020,	// Force entity to use given rect when blitting to screen (CK2dEntity::UseSourceRect)
-			CK_2DENTITY_BACKGROUND=			   0x00000040,	// Force entity to be rendered before 3d objects (CK2dEntity::SetBackground)
-			CK_2DENTITY_NOTPICKABLE=		   0x00000080,	// This entity can not be picked through CKRenderContext::Pick (CK2dEntity::SetPickable)
-			CK_2DENTITY_RATIOOFFSET=		   0x00000100,	// The position is relative to top-right screen or either to top-right camera surface (CK2dEntity::EnableRatioOffset)
-			CK_2DENTITY_USEHOMOGENEOUSCOORD=   0x00000200,  // Use homogeneous coordinates (0..1) insted of pixel coordinates (CK2dEntity::SetHomogeneousCoordinates)
-			CK_2DENTITY_CLIPTOCAMERAVIEW=	   0x00000400,	// Clip to camera view rather than to the screen (CK2dEntity::EnableClipToCamera)
-			CK_2DENTITY_UPDATEHOMOGENEOUSCOORD=0x00000800,  // Need to update homogeneous coordinates (used internally)
-			CK_2DENTITY_CLIPTOPARENT=		   0x00001000,	// Clip to Parent (CK2dEntity::SetClipToParent)
-			CK_2DENTITY_RESERVED0			=  0x00010000,  
-			CK_2DENTITY_RESERVED1			=  0x00020000,  
-			CK_2DENTITY_RESERVED2			=  0x00040000,  
-			CK_2DENTITY_STICKLEFT			=  0x00080000,  // stick left to the parent
-			CK_2DENTITY_STICKRIGHT			=  0x00100000,  // stick right to the parent
-			CK_2DENTITY_STICKTOP			=  0x00200000,  // stick top to the parent
-			CK_2DENTITY_STICKBOTTOM			=  0x00400000   // stick bottom to the parent
+            CK_2DENTITY_RESERVED3=			   0x00000001,	
+            CK_2DENTITY_POSITIONCHANGED=	   0x00000002,	// Position changed since last frame (used internally)
+            CK_2DENTITY_SIZECHANGED=		   0x00000004,	// Size changed since last frame (used internally) 
+            CK_2DENTITY_USESIZE=			   0x00000008,	// Force entity to use given size
+            CK_2DENTITY_VIRTOOLS=			   0x00000010,	// Entity created and used by the interface
+            CK_2DENTITY_USESRCRECT=			   0x00000020,	// Force entity to use given rect when blitting to screen (CK2dEntity::UseSourceRect)
+            CK_2DENTITY_BACKGROUND=			   0x00000040,	// Force entity to be rendered before 3d objects (CK2dEntity::SetBackground)
+            CK_2DENTITY_NOTPICKABLE=		   0x00000080,	// This entity can not be picked through CKRenderContext::Pick (CK2dEntity::SetPickable)
+            CK_2DENTITY_RATIOOFFSET=		   0x00000100,	// The position is relative to top-right screen or either to top-right camera surface (CK2dEntity::EnableRatioOffset)
+            CK_2DENTITY_USEHOMOGENEOUSCOORD=   0x00000200,  // Use homogeneous coordinates (0..1) insted of pixel coordinates (CK2dEntity::SetHomogeneousCoordinates)
+            CK_2DENTITY_CLIPTOCAMERAVIEW=	   0x00000400,	// Clip to camera view rather than to the screen (CK2dEntity::EnableClipToCamera)
+            CK_2DENTITY_UPDATEHOMOGENEOUSCOORD=0x00000800,  // Need to update homogeneous coordinates (used internally)
+            CK_2DENTITY_CLIPTOPARENT=		   0x00001000,	// Clip to Parent (CK2dEntity::SetClipToParent)
+            CK_2DENTITY_RESERVED0			=  0x00010000,  
+            CK_2DENTITY_RESERVED1			=  0x00020000,  
+            CK_2DENTITY_RESERVED2			=  0x00040000,  
+            CK_2DENTITY_STICKLEFT			=  0x00080000,  // stick left to the parent
+            CK_2DENTITY_STICKRIGHT			=  0x00100000,  // stick right to the parent
+            CK_2DENTITY_STICKTOP			=  0x00200000,  // stick top to the parent
+            CK_2DENTITY_STICKBOTTOM			=  0x00400000   // stick bottom to the parent
 } CK_2DENTITY_FLAGS;
 
 
@@ -477,21 +475,21 @@ typedef enum CK_2DENTITY_FLAGS {
 Summary: Special settings for object animations.
 
 Remarks:
-	+ These flags specify special settings for object animations such
-	as ignoring position,scale or rotation information.
+    + These flags specify special settings for object animations such
+    as ignoring position,scale or rotation information.
 
 See also:	CKObjectAnimation::GetFlags
 ****************************************************************/
 typedef enum CK_OBJECTANIMATION_FLAGS {
-		CK_OBJECTANIMATION_IGNOREPOS	  = 0x00000004,	// Ignore Position information
-		CK_OBJECTANIMATION_IGNOREROT	  = 0x00000008,	// Ignore Rotation information
-		CK_OBJECTANIMATION_IGNORESCALE	  = 0x00000010,	// Ignore Scaling information
-		CK_OBJECTANIMATION_IGNOREMORPH	  = 0x00000020,	// Ignore Morph information
-		CK_OBJECTANIMATION_IGNORESCALEROT = 0x00000040,	// Ignore Shear information
-		CK_OBJECTANIMATION_MERGED		  = 0x00000080, // This animation is a merged animation (CKObjectAnimation::CreateMergedAnimation)
-		CK_OBJECTANIMATION_WARPER		  = 0x40000000,	// This animation is used for transitions (internal)
-		CK_OBJECTANIMATION_RESERVED		  = 0x80000000,	// reserved for internal use
-	} CK_OBJECTANIMATION_FLAGS;
+        CK_OBJECTANIMATION_IGNOREPOS	  = 0x00000004,	// Ignore Position information
+        CK_OBJECTANIMATION_IGNOREROT	  = 0x00000008,	// Ignore Rotation information
+        CK_OBJECTANIMATION_IGNORESCALE	  = 0x00000010,	// Ignore Scaling information
+        CK_OBJECTANIMATION_IGNOREMORPH	  = 0x00000020,	// Ignore Morph information
+        CK_OBJECTANIMATION_IGNORESCALEROT = 0x00000040,	// Ignore Shear information
+        CK_OBJECTANIMATION_MERGED		  = 0x00000080, // This animation is a merged animation (CKObjectAnimation::CreateMergedAnimation)
+        CK_OBJECTANIMATION_WARPER		  = 0x40000000,	// This animation is used for transitions (internal)
+        CK_OBJECTANIMATION_RESERVED		  = 0x80000000,	// reserved for internal use
+    } CK_OBJECTANIMATION_FLAGS;
 
 
 
@@ -501,48 +499,48 @@ typedef enum CK_OBJECTANIMATION_FLAGS {
 Summary:  Flags settings for animations
 
 Remarks: 
-	These flags specify play options for the animations.
+    These flags specify play options for the animations.
 See also: CKAnimation, CKAnimation::SetFlags
 *************************************************/
 typedef enum CK_ANIMATION_FLAGS {
-			CKANIMATION_LINKTOFRAMERATE	=			0x00000001,	// Interpolation is done accordind to real time (CKAnimation::LinkToFrameRate)
-			CKANIMATION_CANBEBREAK		=			0x00000004,	// If not set, once started an animation will be played until its end (CKAnimation::SetCanBeInterrupt)
-			CKANIMATION_ALLOWTURN		=			0x00000008,	// Character can be rotated while this animation is playing	(used internally)
-			CKANIMATION_ALIGNORIENTATION=			0x00000010,	// Character will take animation orienation	(CKAnimation::SetCharacterOrientation)
-			CKANIMATION_SECONDARYWARPER	=			0x00000020,	// This animation is used to made a transition for secondary animations (used internally)
-			CKANIMATION_SUBANIMSSORTED	=			0x00000040,	// For keyed animations this flag is set when all the sub-objects animations have been sorted accorded to their importance (contribution) in the whole animation (used internally)
+            CKANIMATION_LINKTOFRAMERATE	=			0x00000001,	// Interpolation is done accordind to real time (CKAnimation::LinkToFrameRate)
+            CKANIMATION_CANBEBREAK		=			0x00000004,	// If not set, once started an animation will be played until its end (CKAnimation::SetCanBeInterrupt)
+            CKANIMATION_ALLOWTURN		=			0x00000008,	// Character can be rotated while this animation is playing	(used internally)
+            CKANIMATION_ALIGNORIENTATION=			0x00000010,	// Character will take animation orienation	(CKAnimation::SetCharacterOrientation)
+            CKANIMATION_SECONDARYWARPER	=			0x00000020,	// This animation is used to made a transition for secondary animations (used internally)
+            CKANIMATION_SUBANIMSSORTED	=			0x00000040,	// For keyed animations this flag is set when all the sub-objects animations have been sorted accorded to their importance (contribution) in the whole animation (used internally)
 
 // Transition Options... 
 
-			CKANIMATION_TRANSITION_FROMNOW			= 0000000100,		// Play new animation right now without any transition
-			CKANIMATION_TRANSITION_FROMWARPFROMCURRENT	= 0x00000200,	// Warp to next anim from current position
+            CKANIMATION_TRANSITION_FROMNOW			= 0000000100,		// Play new animation right now without any transition
+            CKANIMATION_TRANSITION_FROMWARPFROMCURRENT	= 0x00000200,	// Warp to next anim from current position
 
-			CKANIMATION_TRANSITION_TOSTART			= 0x00000800,		//  Start next animation from the start
+            CKANIMATION_TRANSITION_TOSTART			= 0x00000800,		//  Start next animation from the start
 
-			CKANIMATION_TRANSITION_WARPTOSTART		= 0x00001000,	//  warp to the start of next animation
-			CKANIMATION_TRANSITION_WARPTOBEST		= 0x00002000,	//  warp to the best suited position in the next animation
-			CKANIMATION_TRANSITION_WARPTOSAMEPOS	= 0x00010000,	//  warp to the given position of next animation
-													
-			CKANIMATION_TRANSITION_USEVELOCITY		= 0x00004000,	//  use current animation and next animation velocities to extrapolate a velocity for the root bodypart
-			CKANIMATION_TRANSITION_LOOPIFEQUAL		= 0x00008000,	//  if current and next animation are the same act as a loop
-														
-			CKANIMATION_TRANSITION_WARPSTART		= 0x00001200,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOSTART)
-			CKANIMATION_TRANSITION_WARPBEST			= 0x00002200,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOBEST)
-			CKANIMATION_TRANSITION_WARPSAMEPOS		= 0x0001FB00,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOSAMEPOS)
+            CKANIMATION_TRANSITION_WARPTOSTART		= 0x00001000,	//  warp to the start of next animation
+            CKANIMATION_TRANSITION_WARPTOBEST		= 0x00002000,	//  warp to the best suited position in the next animation
+            CKANIMATION_TRANSITION_WARPTOSAMEPOS	= 0x00010000,	//  warp to the given position of next animation
+                                                    
+            CKANIMATION_TRANSITION_USEVELOCITY		= 0x00004000,	//  use current animation and next animation velocities to extrapolate a velocity for the root bodypart
+            CKANIMATION_TRANSITION_LOOPIFEQUAL		= 0x00008000,	//  if current and next animation are the same act as a loop
+                                                        
+            CKANIMATION_TRANSITION_WARPSTART		= 0x00001200,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOSTART)
+            CKANIMATION_TRANSITION_WARPBEST			= 0x00002200,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOBEST)
+            CKANIMATION_TRANSITION_WARPSAMEPOS		= 0x0001FB00,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOSAMEPOS)
 
-			CKANIMATION_TRANSITION_ALL				= 0x0001FF00,
+            CKANIMATION_TRANSITION_ALL				= 0x0001FF00,
 
 // Secondary Animation Options ...
-			CKANIMATION_SECONDARY_ONESHOT			= 0x00040000,	// Animation will be played once
-			CKANIMATION_SECONDARY_LOOP				= 0x00080000,	// Animation will be played continously			
-			CKANIMATION_SECONDARY_LASTFRAME			= 0x00200000,	// Animation will stay on last frame		
-			CKANIMATION_SECONDARY_LOOPNTIMES		= 0x00400000,	// Animation will be played continously	for N loop (specified in PlaySecondaryAnimation)		
-			CKANIMATION_SECONDARY_DOWARP			= 0x00800000,	// Creates A transition when starting or stopping a animation
-			
-			CKANIMATION_SECONDARY_ALL				= 0x00EC0000,	// Creates A transition when starting or stopping a animation
+            CKANIMATION_SECONDARY_ONESHOT			= 0x00040000,	// Animation will be played once
+            CKANIMATION_SECONDARY_LOOP				= 0x00080000,	// Animation will be played continously			
+            CKANIMATION_SECONDARY_LASTFRAME			= 0x00200000,	// Animation will stay on last frame		
+            CKANIMATION_SECONDARY_LOOPNTIMES		= 0x00400000,	// Animation will be played continously	for N loop (specified in PlaySecondaryAnimation)		
+            CKANIMATION_SECONDARY_DOWARP			= 0x00800000,	// Creates A transition when starting or stopping a animation
+            
+            CKANIMATION_SECONDARY_ALL				= 0x00EC0000,	// Creates A transition when starting or stopping a animation
 
-			CKANIMATION_TRANSITION_PRESET			= 0x01000000,	// Set by the Exporter or user to indicate to ignore flags specified in CKCharacter::SetNextActiveAnimation ( They should be set trough CKAnimation::SetTransitionMode )
-			CKANIMATION_SECONDARY_PRESET			= 0x02000000,	// Set by the Exporter or user to indicate to ignore flags specified in CKCharacter::PlaySecondaryAnimation ( They should be set trough CKAnimation::SetSecondaryAnimationMode )
+            CKANIMATION_TRANSITION_PRESET			= 0x01000000,	// Set by the Exporter or user to indicate to ignore flags specified in CKCharacter::SetNextActiveAnimation ( They should be set trough CKAnimation::SetTransitionMode )
+            CKANIMATION_SECONDARY_PRESET			= 0x02000000,	// Set by the Exporter or user to indicate to ignore flags specified in CKCharacter::PlaySecondaryAnimation ( They should be set trough CKAnimation::SetSecondaryAnimationMode )
 } CK_ANIMATION_FLAGS;
 
 
@@ -551,29 +549,29 @@ typedef enum CK_ANIMATION_FLAGS {
 Summary: Transition mode between animations
 
 Remarks:
-	Constants identifying way transition should occur when changing current animation in a character.
+    Constants identifying way transition should occur when changing current animation in a character.
 See also : CKCharacter::SetNextActiveAnimation,CKKeyedAnimation::CreateTransition
 *************************************************/
 typedef enum CK_ANIMATION_TRANSITION_MODE {
-		CK_TRANSITION_FROMNOW				=0x00000001,	// play new animation right now without any transition
-		CK_TRANSITION_FROMWARPFROMCURRENT	=0x00000002,	// Warp to next anim from current position
+        CK_TRANSITION_FROMNOW				=0x00000001,	// play new animation right now without any transition
+        CK_TRANSITION_FROMWARPFROMCURRENT	=0x00000002,	// Warp to next anim from current position
 
-		CK_TRANSITION_TOSTART				=0x00000008,	//  start next animation from the start
+        CK_TRANSITION_TOSTART				=0x00000008,	//  start next animation from the start
 
-		CK_TRANSITION_WARPTOSTART			=0x00000010,	//  warp to the start of next animation
-		CK_TRANSITION_WARPTOBEST			=0x00000020,	//  warp to the best suited position in the next animation
-		CK_TRANSITION_WARPTOSAMEPOS			=0x00000100,	//  warp to the same current position int the source animation to the destination animation
+        CK_TRANSITION_WARPTOSTART			=0x00000010,	//  warp to the start of next animation
+        CK_TRANSITION_WARPTOBEST			=0x00000020,	//  warp to the best suited position in the next animation
+        CK_TRANSITION_WARPTOSAMEPOS			=0x00000100,	//  warp to the same current position int the source animation to the destination animation
 
-		CK_TRANSITION_USEVELOCITY			=0x00000040,	//  use current animation and next animation velocities to extrapolate a velocity for the root bodypart
-		CK_TRANSITION_LOOPIFEQUAL			=0x00000080,	//  if current and next animation are the same act as a loop
+        CK_TRANSITION_USEVELOCITY			=0x00000040,	//  use current animation and next animation velocities to extrapolate a velocity for the root bodypart
+        CK_TRANSITION_LOOPIFEQUAL			=0x00000080,	//  if current and next animation are the same act as a loop
 
-		CK_TRANSITION_FROMANIMATION			=0x00000200,	//  Use transition mode stored in the animation (See CKAnimation::SetTransitionMode)
-		
-		CK_TRANSITION_WARPSTART				=0x00000012,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOSTART)
-		CK_TRANSITION_WARPBEST				=0x00000022,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOBEST)
-		CK_TRANSITION_WARPSAMEPOS			=0x00000102,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOPOS)
-		CK_TRANSITION_WARPMASK				=0x00000132		// Mask for all warping modes 
-		
+        CK_TRANSITION_FROMANIMATION			=0x00000200,	//  Use transition mode stored in the animation (See CKAnimation::SetTransitionMode)
+        
+        CK_TRANSITION_WARPSTART				=0x00000012,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOSTART)
+        CK_TRANSITION_WARPBEST				=0x00000022,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOBEST)
+        CK_TRANSITION_WARPSAMEPOS			=0x00000102,	//	(CK_TRANSITION_FROMWARPFROMCURRENT|CK_TRANSITION_WARPTOPOS)
+        CK_TRANSITION_WARPMASK				=0x00000132		// Mask for all warping modes 
+        
 } CK_ANIMATION_TRANSITION_MODE;
 
 
@@ -590,20 +588,20 @@ typedef enum CK_ANIMATION_TRANSITION_MODE {
 {filename:CK_SECONDARYANIMATION_FLAGS}
 Summary:  Flags settings for secondary animations
 Remarks: 
-	+ These flags specify play options for secondary animations on a character.
-	+ They be given when playing a secondary animation in CKCharacter::PlaySecondaryAnimation
-	or set once on the animation using CKAnimation::SetSecondaryAnimationMode.
+    + These flags specify play options for secondary animations on a character.
+    + They be given when playing a secondary animation in CKCharacter::PlaySecondaryAnimation
+    or set once on the animation using CKAnimation::SetSecondaryAnimationMode.
 
 See also: CKAnimation, CKCharacter::PlaySecondaryAnimation,CKAnimation::SetSecondaryAnimationMode
 *************************************************/
 typedef enum CK_SECONDARYANIMATION_FLAGS {
-			CKSECONDARYANIMATION_ONESHOT=	   0x00000004,	// Animation will be played once
-			CKSECONDARYANIMATION_LOOP=		   0x00000008,	// Animation will be played continously			
-			CKSECONDARYANIMATION_LASTFRAME=	   0x00000020,	// Animation will stay on last frame		
-			CKSECONDARYANIMATION_LOOPNTIMES=   0x00000040,	// Animation will be played continously	for N loop (specified in CKCharacter::PlaySecondaryAnimation)		
-			CKSECONDARYANIMATION_DOWARP=	   0x00000080,	// Creates a transition when starting or stopping a animation
+            CKSECONDARYANIMATION_ONESHOT=	   0x00000004,	// Animation will be played once
+            CKSECONDARYANIMATION_LOOP=		   0x00000008,	// Animation will be played continously			
+            CKSECONDARYANIMATION_LASTFRAME=	   0x00000020,	// Animation will stay on last frame		
+            CKSECONDARYANIMATION_LOOPNTIMES=   0x00000040,	// Animation will be played continously	for N loop (specified in CKCharacter::PlaySecondaryAnimation)		
+            CKSECONDARYANIMATION_DOWARP=	   0x00000080,	// Creates a transition when starting or stopping a animation
 
-			CKSECONDARYANIMATION_FROMANIMATION=0x00000100,	// Uses settings specified in CKAnimation::SetSecondaryAnimationMode
+            CKSECONDARYANIMATION_FROMANIMATION=0x00000100,	// Uses settings specified in CKAnimation::SetSecondaryAnimationMode
 } CK_SECONDARYANIMATION_FLAGS;
 
 
@@ -612,31 +610,31 @@ typedef enum CK_SECONDARYANIMATION_FLAGS {
 Summary: Render options
 
 Remarks:
-	+ This flags specifies different render options when drawing the scenes. 
+    + This flags specifies different render options when drawing the scenes. 
 
 See also: CKRenderContext::ModifyCurrentRenderOptions,CKRenderContext::Render,CKRenderContext::DrawScene,CKRenderContext::Clear,CKRenderContext::BackToFront
 *************************************************/
 typedef enum CK_RENDER_FLAGS {
-		CK_RENDER_BACKGROUNDSPRITES		=	0x00000001,		// Background sprites are to be rendered
-		CK_RENDER_FOREGROUNDSPRITES		=	0x00000002,		// Foreground sprites are to be rendered
-		CK_RENDER_USECAMERARATIO		=	0x00000008,		// Render Context size is automatically set using current camera aspect ratio and window size.
-		CK_RENDER_CLEARZ				=	0x00000010,		// Clear ZBuffer
-		CK_RENDER_CLEARBACK				=	0x00000020,		// Clear Back Buffer
-		CK_RENDER_CLEARSTENCIL			=	0x00000040,		// Clear Stencil Buffer
-		CK_RENDER_DOBACKTOFRONT			=	0x00000080,		// Swap buffers
-		
-		CK_RENDER_DEFAULTSETTINGS		=   0x000000FF,		// Default render context settings 
+        CK_RENDER_BACKGROUNDSPRITES		=	0x00000001,		// Background sprites are to be rendered
+        CK_RENDER_FOREGROUNDSPRITES		=	0x00000002,		// Foreground sprites are to be rendered
+        CK_RENDER_USECAMERARATIO		=	0x00000008,		// Render Context size is automatically set using current camera aspect ratio and window size.
+        CK_RENDER_CLEARZ				=	0x00000010,		// Clear ZBuffer
+        CK_RENDER_CLEARBACK				=	0x00000020,		// Clear Back Buffer
+        CK_RENDER_CLEARSTENCIL			=	0x00000040,		// Clear Stencil Buffer
+        CK_RENDER_DOBACKTOFRONT			=	0x00000080,		// Swap buffers
+        
+        CK_RENDER_DEFAULTSETTINGS		=   0x000000FF,		// Default render context settings 
 
-		CK_RENDER_CLEARVIEWPORT			=   0x00000100,		// Do not clear entire device, only viewport 		
-		CK_RENDER_WAITVBL				=	0x00000200,		// Wait for Vertical Blank before blitting
-		CK_RENDER_SKIPDRAWSCENE			=	0x00000400,		// Do not draw scene ( Both 3D and 2D objects)
-		CK_RENDER_DONOTUPDATEEXTENTS	=	0x00000800,		// Do not update object extents
-		CK_RENDER_SKIP3D				=	0x00001000,		// Do not draw 3D objects (nor device callbacks)
-		CK_RENDER_OPTIONSMASK			=   0x0000FFFF,		// All rendering flags
+        CK_RENDER_CLEARVIEWPORT			=   0x00000100,		// Do not clear entire device, only viewport 		
+        CK_RENDER_WAITVBL				=	0x00000200,		// Wait for Vertical Blank before blitting
+        CK_RENDER_SKIPDRAWSCENE			=	0x00000400,		// Do not draw scene ( Both 3D and 2D objects)
+        CK_RENDER_DONOTUPDATEEXTENTS	=	0x00000800,		// Do not update object extents
+        CK_RENDER_SKIP3D				=	0x00001000,		// Do not draw 3D objects (nor device callbacks)
+        CK_RENDER_OPTIONSMASK			=   0x0000FFFF,		// All rendering flags
 
-		CK_RENDER_PLAYERCONTEXT			=	0x00010000,		// Use by behaviors to know render contextes on which they should act.
+        CK_RENDER_PLAYERCONTEXT			=	0x00010000,		// Use by behaviors to know render contextes on which they should act.
 
-		CK_RENDER_USECURRENTSETTINGS	=	0x00000000		// When calling CKRenderContext::Render,CKRenderContext::DrawScene,CKRenderContext::Clear and CKRenderContext::BackToFront use this flag to use default options specified in SetCurrentRenderOptions
+        CK_RENDER_USECURRENTSETTINGS	=	0x00000000		// When calling CKRenderContext::Render,CKRenderContext::DrawScene,CKRenderContext::Clear and CKRenderContext::BackToFront use this flag to use default options specified in SetCurrentRenderOptions
 } CK_RENDER_FLAGS;
 
 
@@ -653,14 +651,14 @@ Remarks:
 See also: CKParameterTypeDesc
 *************************************************/
 typedef enum CK_PARAMETERTYPE_FLAGS {
-			CKPARAMETERTYPE_VARIABLESIZE =	   0x00000001,	// Size of the buffer stored by the parameter may change
-			CKPARAMETERTYPE_RESERVED     =	   0x00000002,	// Reserved
-			CKPARAMETERTYPE_HIDDEN		 =	   0x00000004,	// This parameter type should not be shown in the interface
-			CKPARAMETERTYPE_FLAGS		 =	   0x00000008,	// This parameter type is a flag (See CKParameterManager::RegisterNewFlags)
-			CKPARAMETERTYPE_STRUCT		 =	   0x00000010,	// This parameter type is a structure of parameters (See CKParameterManager::RegisterNewStructure)
-			CKPARAMETERTYPE_ENUMS		 =	   0x00000020,	// This parameter type is an enumeration (See CKParameterManager::RegisterNewEnum)
-			CKPARAMETERTYPE_USER		 =	   0x00000040,	// This parameter type is a user-defined one created in the interface
-			CKPARAMETERTYPE_NOENDIANCONV =	   0x00000080	// Do not try to convert this parameter buffer On Big-Endian processors (strings, void buffer have this flags)
+            CKPARAMETERTYPE_VARIABLESIZE =	   0x00000001,	// Size of the buffer stored by the parameter may change
+            CKPARAMETERTYPE_RESERVED     =	   0x00000002,	// Reserved
+            CKPARAMETERTYPE_HIDDEN		 =	   0x00000004,	// This parameter type should not be shown in the interface
+            CKPARAMETERTYPE_FLAGS		 =	   0x00000008,	// This parameter type is a flag (See CKParameterManager::RegisterNewFlags)
+            CKPARAMETERTYPE_STRUCT		 =	   0x00000010,	// This parameter type is a structure of parameters (See CKParameterManager::RegisterNewStructure)
+            CKPARAMETERTYPE_ENUMS		 =	   0x00000020,	// This parameter type is an enumeration (See CKParameterManager::RegisterNewEnum)
+            CKPARAMETERTYPE_USER		 =	   0x00000040,	// This parameter type is a user-defined one created in the interface
+            CKPARAMETERTYPE_NOENDIANCONV =	   0x00000080	// Do not try to convert this parameter buffer On Big-Endian processors (strings, void buffer have this flags)
 } CK_PARAMETERTYPE_FLAGS;
 
 
@@ -670,16 +668,16 @@ typedef enum CK_PARAMETERTYPE_FLAGS {
 Summary: Flags overriding activity flags of objects and scripts in a scene.
 
 Remarks: 
-	+ When launching a scene objects and scripts are activated according to 
-	their scene flags (CK_SCENEOBJECT_FLAGS). You can override this flags when launching a scene
-	by specifying to force activation for example using CK_SCENEOBJECTACTIVITY_ACTIVATE.
+    + When launching a scene objects and scripts are activated according to 
+    their scene flags (CK_SCENEOBJECT_FLAGS). You can override this flags when launching a scene
+    by specifying to force activation for example using CK_SCENEOBJECTACTIVITY_ACTIVATE.
 See also: CKLevel::LaunchScene
 ***************************************************************/
 typedef enum CK_SCENEOBJECTACTIVITY_FLAGS {
-	CK_SCENEOBJECTACTIVITY_SCENEDEFAULT		= 0x00000000,	// The object or script will be activated according to its CK_SCENEOBJECT_FLAGS in the scene		
-	CK_SCENEOBJECTACTIVITY_ACTIVATE			= 0x00000001,	// The objects and scripts will be activated
-	CK_SCENEOBJECTACTIVITY_DEACTIVATE		= 0x00000002,	// The objects and scripts will be deactivated
-	CK_SCENEOBJECTACTIVITY_DONOTHING		= 0x00000003,	// The objects and scripts stay in their current state (whether active or not)
+    CK_SCENEOBJECTACTIVITY_SCENEDEFAULT		= 0x00000000,	// The object or script will be activated according to its CK_SCENEOBJECT_FLAGS in the scene		
+    CK_SCENEOBJECTACTIVITY_ACTIVATE			= 0x00000001,	// The objects and scripts will be activated
+    CK_SCENEOBJECTACTIVITY_DEACTIVATE		= 0x00000002,	// The objects and scripts will be deactivated
+    CK_SCENEOBJECTACTIVITY_DONOTHING		= 0x00000003,	// The objects and scripts stay in their current state (whether active or not)
 } CK_SCENEOBJECTACTIVITY_FLAGS;
 
 
@@ -688,15 +686,15 @@ typedef enum CK_SCENEOBJECTACTIVITY_FLAGS {
 Summary: Flags overriding reset flag of objects and scripts in a scene.
 
 Remarks: 
-	+ When launching a scene objects and scripts are reset according to 
-	their scene flags (CK_SCENEOBJECT_FLAGS). You can override this flags when launching a scene
-	by specifying to force objects not to return to their initial conditions for example using CK_SCENEOBJECTRESET_DONOTHING.
+    + When launching a scene objects and scripts are reset according to 
+    their scene flags (CK_SCENEOBJECT_FLAGS). You can override this flags when launching a scene
+    by specifying to force objects not to return to their initial conditions for example using CK_SCENEOBJECTRESET_DONOTHING.
 See also: CKLevel::LaunchScene,
 ***************************************************************/
 typedef enum CK_SCENEOBJECTRESET_FLAGS {
-	CK_SCENEOBJECTRESET_SCENEDEFAULT	= 0x00000000,	// The object or script will be reset according to its CK_SCENEOBJECT_FLAGS in the scene		
-	CK_SCENEOBJECTRESET_RESET			= 0x00000001,	// Force objects to reset their initial conditions (if any) and scripts to be reset.
-	CK_SCENEOBJECTRESET_DONOTHING		= 0x00000002,	// The objects and scripts stay in their current state
+    CK_SCENEOBJECTRESET_SCENEDEFAULT	= 0x00000000,	// The object or script will be reset according to its CK_SCENEOBJECT_FLAGS in the scene		
+    CK_SCENEOBJECTRESET_RESET			= 0x00000001,	// Force objects to reset their initial conditions (if any) and scripts to be reset.
+    CK_SCENEOBJECTRESET_DONOTHING		= 0x00000002,	// The objects and scripts stay in their current state
 } CK_SCENEOBJECTRESET_FLAGS;
 
 /***********************************************************
@@ -704,19 +702,19 @@ typedef enum CK_SCENEOBJECTRESET_FLAGS {
 Summary: Flags describing state of an object in a scene.
 
 Remarks: 
-	+ Objects present in a CKScene use these flags to describe
-	their state in the scene. Objects may be hidden or have an 
-	initial state forced to a specific value.
+    + Objects present in a CKScene use these flags to describe
+    their state in the scene. Objects may be hidden or have an 
+    initial state forced to a specific value.
 
 See also: CKScene::SetObjectFlags,CKScene::ModifyObjectFlags
 ***************************************************************/
 typedef enum CK_SCENEOBJECT_FLAGS {
-			CK_SCENEOBJECT_START_ACTIVATE		= 0x0001,	// The object or script is activated when the scene starts (Default)
-			CK_SCENEOBJECT_ACTIVE				= 0x0008,	// The object or script is currently active (behaviors will be executed)
-			CK_SCENEOBJECT_START_DEACTIVATE		= 0x0010,	// The object or script is deactivated when the scene starts
-			CK_SCENEOBJECT_START_LEAVE			= 0x0020,	// The object or script stay in their current state when the scene starts
-			CK_SCENEOBJECT_START_RESET			= 0x0040,	// Objects : Reset their initial conditions if any, Scripts : Re-initialize script.( Default)
-			CK_SCENEOBJECT_INTERNAL_IC			= 0x0080,	
+            CK_SCENEOBJECT_START_ACTIVATE		= 0x0001,	// The object or script is activated when the scene starts (Default)
+            CK_SCENEOBJECT_ACTIVE				= 0x0008,	// The object or script is currently active (behaviors will be executed)
+            CK_SCENEOBJECT_START_DEACTIVATE		= 0x0010,	// The object or script is deactivated when the scene starts
+            CK_SCENEOBJECT_START_LEAVE			= 0x0020,	// The object or script stay in their current state when the scene starts
+            CK_SCENEOBJECT_START_RESET			= 0x0040,	// Objects : Reset their initial conditions if any, Scripts : Re-initialize script.( Default)
+            CK_SCENEOBJECT_INTERNAL_IC			= 0x0080,	
 } CK_SCENEOBJECT_FLAGS;
 
 
@@ -725,20 +723,20 @@ typedef enum CK_SCENEOBJECT_FLAGS {
 Summary: Attribute Flags
 
 Remarks: 
-	+ When created a new attribute type with CKAttributeManager::RegisterNewAttributeType , it can 
-	be given special properties that will control its behavior in the Dev interface and other
-	special features such as the ability for an attribute to be copied or saved along with the object
-	it belongs to.
+    + When created a new attribute type with CKAttributeManager::RegisterNewAttributeType , it can 
+    be given special properties that will control its behavior in the Dev interface and other
+    special features such as the ability for an attribute to be copied or saved along with the object
+    it belongs to.
 See also: CKAttributeManager::RegisterNewAttributeType,CKAttributeManager::GetAttributeFlags
 *************************************************/
 typedef enum CK_ATTRIBUT_FLAGS {
-	CK_ATTRIBUT_CAN_MODIFY		 = 0x00000001,	// This Attribute type may be renamed
-	CK_ATTRIBUT_CAN_DELETE		 = 0x00000002,	// This Attribute type may be deleted 		
-	CK_ATTRIBUT_HIDDEN			 = 0x00000004,	// This Attribute type will not appear in the Virtools Interface		
-	CK_ATTRIBUT_DONOTSAVE		 = 0x00000008,	// This Attribute type will not be saved		
-	CK_ATTRIBUT_USER			 = 0x00000010,	// This Attribute type was created by a user (in the Dev interface for example)
-	CK_ATTRIBUT_SYSTEM			 = 0x00000020,	// This Attribute type was created by the system (Behavior Dll,Manager,etc...)
-	CK_ATTRIBUT_DONOTCOPY		 = 0x00000040,	// This Attribute type will not be copied when the object that holds it is copied		
+    CK_ATTRIBUT_CAN_MODIFY		 = 0x00000001,	// This Attribute type may be renamed
+    CK_ATTRIBUT_CAN_DELETE		 = 0x00000002,	// This Attribute type may be deleted 		
+    CK_ATTRIBUT_HIDDEN			 = 0x00000004,	// This Attribute type will not appear in the Virtools Interface		
+    CK_ATTRIBUT_DONOTSAVE		 = 0x00000008,	// This Attribute type will not be saved		
+    CK_ATTRIBUT_USER			 = 0x00000010,	// This Attribute type was created by a user (in the Dev interface for example)
+    CK_ATTRIBUT_SYSTEM			 = 0x00000020,	// This Attribute type was created by the system (Behavior Dll,Manager,etc...)
+    CK_ATTRIBUT_DONOTCOPY		 = 0x00000040,	// This Attribute type will not be copied when the object that holds it is copied		
 } CK_ATTRIBUT_FLAGS;
 
 
@@ -748,9 +746,9 @@ typedef enum CK_ATTRIBUT_FLAGS {
 
  
 typedef enum CK_BEHAVIORPROTOTYPE_FLAGS {
-				CK_BEHAVIORPROTOTYPE_NORMAL		=0x00000001,			
-				CK_BEHAVIORPROTOTYPE_HIDDEN		=0x00000002,
-				CK_BEHAVIORPROTOTYPE_OBSOLETE	=0x00000004,	
+                CK_BEHAVIORPROTOTYPE_NORMAL		=0x00000001,			
+                CK_BEHAVIORPROTOTYPE_HIDDEN		=0x00000002,
+                CK_BEHAVIORPROTOTYPE_OBSOLETE	=0x00000004,	
 } CK_BEHAVIORPROTOTYPE_FLAGS;
 
 
@@ -763,11 +761,11 @@ See also:
 *************************************************/
 typedef enum CK_LOADMODE 
 {
-	CKLOAD_INVALID=-1,// Use the existing object instead of loading 
-	CKLOAD_OK=0,		// Ignore ( Name unicity is broken )
-	CKLOAD_REPLACE=1,	// Replace the existing object (Not yet implemented)
-	CKLOAD_RENAME=2,	// Rename the loaded object
-	CKLOAD_USECURRENT=3,// Use the existing object instead of loading 
+    CKLOAD_INVALID=-1,// Use the existing object instead of loading 
+    CKLOAD_OK=0,		// Ignore ( Name unicity is broken )
+    CKLOAD_REPLACE=1,	// Replace the existing object (Not yet implemented)
+    CKLOAD_RENAME=2,	// Rename the loaded object
+    CKLOAD_USECURRENT=3,// Use the existing object instead of loading 
 } CK_LOADMODE,CK_CREATIONMODE;
 
 /*************************************************
@@ -775,22 +773,22 @@ typedef enum CK_LOADMODE
 Summary: Specify the way an object is created through CKCreateObject.
 
 Remarks: 
-	+ These flag controls the way an object is created, the most important of these flags
-	being CK_OBJECTCREATION_DYNAMIC which, if set in CKCreateObject, make the newly created object 
-	dynamic.
+    + These flag controls the way an object is created, the most important of these flags
+    being CK_OBJECTCREATION_DYNAMIC which, if set in CKCreateObject, make the newly created object 
+    dynamic.
 See also: CKContext::CreateObject,Dynamic Objects
 *************************************************/
 enum CK_OBJECTCREATION_OPTIONS
 {
-	CK_OBJECTCREATION_NONAMECHECK	= 0,	// Do not test for name unicity (may be overriden in special case)
-	CK_OBJECTCREATION_REPLACE		= 1,	// Replace the current object by the object being loaded
-	CK_OBJECTCREATION_RENAME		= 2,	// Rename the created object to ensure its uniqueness
-	CK_OBJECTCREATION_USECURRENT	= 3,	// Do not create a new object, use the one with the same name instead
-	CK_OBJECTCREATION_ASK			= 4,	//	If a duplicate name if found, opens a dialog box to ask the useror use automatic load mode if any.
-	CK_OBJECTCREATION_FLAGSMASK		= 0x0000000F,	// Mask for previous values
-	CK_OBJECTCREATION_DYNAMIC		= 0x00000010,	//	The object must be created dynamic
-	CK_OBJECTCREATION_ACTIVATE		= 0x00000020,	//	The object will be copied/created active
-	CK_OBJECTCREATION_NONAMECOPY	= 0x00000040	//	The object will take control of the string given to it directly, without copying it
+    CK_OBJECTCREATION_NONAMECHECK	= 0,	// Do not test for name unicity (may be overriden in special case)
+    CK_OBJECTCREATION_REPLACE		= 1,	// Replace the current object by the object being loaded
+    CK_OBJECTCREATION_RENAME		= 2,	// Rename the created object to ensure its uniqueness
+    CK_OBJECTCREATION_USECURRENT	= 3,	// Do not create a new object, use the one with the same name instead
+    CK_OBJECTCREATION_ASK			= 4,	//	If a duplicate name if found, opens a dialog box to ask the useror use automatic load mode if any.
+    CK_OBJECTCREATION_FLAGSMASK		= 0x0000000F,	// Mask for previous values
+    CK_OBJECTCREATION_DYNAMIC		= 0x00000010,	//	The object must be created dynamic
+    CK_OBJECTCREATION_ACTIVATE		= 0x00000020,	//	The object will be copied/created active
+    CK_OBJECTCREATION_NONAMECOPY	= 0x00000040	//	The object will take control of the string given to it directly, without copying it
 };
 
 
@@ -803,17 +801,17 @@ enum CK_OBJECTCREATION_OPTIONS
 Summary: Specify the mode of operation of a CKDependenciesContext.
 
 Remarks: 
-	A CKDependenciesContext class is always used when it come to work
-	with object dependencies (A mesh if a dependencies of a CK3dEntity for example)
+    A CKDependenciesContext class is always used when it come to work
+    with object dependencies (A mesh if a dependencies of a CK3dEntity for example)
 See also: CKCreateObject
 *************************************************/
 typedef enum CK_DEPENDENCIES_OPMODE {
-	CK_DEPENDENCIES_COPY			=	1,	// Copying objects
-	CK_DEPENDENCIES_DELETE			=	2,	// Deleting objects
-	CK_DEPENDENCIES_REPLACE			=	3,	
-	CK_DEPENDENCIES_SAVE			=	4,	// Saving objects
-	CK_DEPENDENCIES_BUILD			=	5,	// Building a list of dependencies
-	CK_DEPENDENCIES_OPERATIONMODE	=	0xF
+    CK_DEPENDENCIES_COPY			=	1,	// Copying objects
+    CK_DEPENDENCIES_DELETE			=	2,	// Deleting objects
+    CK_DEPENDENCIES_REPLACE			=	3,	
+    CK_DEPENDENCIES_SAVE			=	4,	// Saving objects
+    CK_DEPENDENCIES_BUILD			=	5,	// Building a list of dependencies
+    CK_DEPENDENCIES_OPERATIONMODE	=	0xF
 } CK_DEPENDENCIES_OPMODE;
 
 /*************************************************
@@ -821,19 +819,19 @@ typedef enum CK_DEPENDENCIES_OPMODE {
 Summary: Specify the way files are saved to disk (compression)
 
 Remarks :
-	+ File write mode controls the format of a Virtools file when saved. More specifically it 
-	controls whether compression is enabled and also if the Virtools Dev Interface specific data
-	should be stored in the file (if CKFILE_FORVIEWER flag is set , no interface data is saved)
+    + File write mode controls the format of a Virtools file when saved. More specifically it 
+    controls whether compression is enabled and also if the Virtools Dev Interface specific data
+    should be stored in the file (if CKFILE_FORVIEWER flag is set , no interface data is saved)
 
 See also: CKContext::SetFileWriteMode,CKContext::GetFileWriteMode,CKContext::SetCompressionLevel,CKContext::SetGlobalImagesSaveOptions,CKContext::SetGlobalSoundsSaveOptions
 *************************************************/
 typedef enum CK_FILE_WRITEMODE 
 {
-	CKFILE_UNCOMPRESSED	       =0,	// Save data uncompressed
-	CKFILE_CHUNKCOMPRESSED_OLD =1,	// Obsolete
-	CKFILE_EXTERNALTEXTURES_OLD=2,	// Obsolete : use CKContext::SetGlobalImagesSaveOptions instead.
-	CKFILE_FORVIEWER           =4,	// Don't save Interface Data within the file, the level won't be editable anymore in the interface
-	CKFILE_WHOLECOMPRESSED     =8,	// Compress the whole file
+    CKFILE_UNCOMPRESSED	       =0,	// Save data uncompressed
+    CKFILE_CHUNKCOMPRESSED_OLD =1,	// Obsolete
+    CKFILE_EXTERNALTEXTURES_OLD=2,	// Obsolete : use CKContext::SetGlobalImagesSaveOptions instead.
+    CKFILE_FORVIEWER           =4,	// Don't save Interface Data within the file, the level won't be editable anymore in the interface
+    CKFILE_WHOLECOMPRESSED     =8,	// Compress the whole file
 } CK_FILE_WRITEMODE;
 
 /*************************************************
@@ -845,9 +843,9 @@ See also: CKBitmapData::SetSystemCaching,CKContext::SetGlobalImagesSaveOptions
 *************************************************/
 enum CK_BITMAP_SYSTEMCACHING 
 {
-	CKBITMAP_PROCEDURAL				= 0,	// The texture is stored in a raw 32 bit per pixel format for easy read and write operations (needed for SetPixel and ReadPixel for ex.). 
-	CKBITMAP_VIDEOSHADOW			= 1,	// The texture is stored in the same format as the desired video
-	CKBITMAP_DISCARD				= 2		// The texture is not stored in system memory
+    CKBITMAP_PROCEDURAL				= 0,	// The texture is stored in a raw 32 bit per pixel format for easy read and write operations (needed for SetPixel and ReadPixel for ex.). 
+    CKBITMAP_VIDEOSHADOW			= 1,	// The texture is stored in the same format as the desired video
+    CKBITMAP_DISCARD				= 2		// The texture is not stored in system memory
 };
 
 /*************************************************
@@ -855,21 +853,21 @@ enum CK_BITMAP_SYSTEMCACHING
 Summary: Specify the way textures or sprites will be saved
 
 Remarks : 
-	+ Textures can be stored inside Virtools files or kept as references to external files.
-	+ These options can be used for a specific texture (or sprite) or as a global setting.
+    + Textures can be stored inside Virtools files or kept as references to external files.
+    + These options can be used for a specific texture (or sprite) or as a global setting.
 See also: CKBitmapData::SetSaveOptions,CKSprite::SetSaveOptions,CKContext::SetGlobalImagesSaveOptions
 *************************************************/
 typedef enum CK_TEXTURE_SAVEOPTIONS 
 {
-	CKTEXTURE_RAWDATA				=0,	// Save raw data inside file. The bitmap is saved in a raw 32 bit per pixel format. 
-	CKTEXTURE_EXTERNAL				=1,	// Store only the file name for the texture. The bitmap file must be present in the bitmap paths 
-										// when loading the composition.
-	CKTEXTURE_IMAGEFORMAT			=2,	// Save using format specified. The bitmap data will be converted to the 
-										// specified format by the correspondant bitmap plugin and saved inside file. 
-	CKTEXTURE_USEGLOBAL				=3,	// Use Global settings, that is the settings given with CKContext::SetGlobalImagesSaveOptions. (Not valid when using CKContext::SetImagesSaveOptions). 
-	CKTEXTURE_INCLUDEORIGINALFILE	=4,	// Insert original image file inside CMO file. The bitmap file that 
-										// was used originally for the texture or sprite will be append to 
-										// the composition file and extracted when the file is loaded.
+    CKTEXTURE_RAWDATA				=0,	// Save raw data inside file. The bitmap is saved in a raw 32 bit per pixel format. 
+    CKTEXTURE_EXTERNAL				=1,	// Store only the file name for the texture. The bitmap file must be present in the bitmap paths 
+                                        // when loading the composition.
+    CKTEXTURE_IMAGEFORMAT			=2,	// Save using format specified. The bitmap data will be converted to the 
+                                        // specified format by the correspondant bitmap plugin and saved inside file. 
+    CKTEXTURE_USEGLOBAL				=3,	// Use Global settings, that is the settings given with CKContext::SetGlobalImagesSaveOptions. (Not valid when using CKContext::SetImagesSaveOptions). 
+    CKTEXTURE_INCLUDEORIGINALFILE	=4,	// Insert original image file inside CMO file. The bitmap file that 
+                                        // was used originally for the texture or sprite will be append to 
+                                        // the composition file and extracted when the file is loaded.
 } CK_TEXTURE_SAVEOPTIONS,CK_BITMAP_SAVEOPTIONS;
 
 
@@ -885,12 +883,12 @@ See also: CKSound::SetSaveOptions,CKContext::SetGlobalSoundSaveOptions
 *************************************************/
 typedef enum CK_SOUND_SAVEOPTIONS 
 {
-	CKSOUND_EXTERNAL				=0,	// Store only the file name for the sound. The sound file must be present
-										// in one of the sound paths when the composition is loaded.
-	CKSOUND_INCLUDEORIGINALFILE		=1,	// Insert original sound file inside the CMO file. The sound file that 
-										// was used originally will be append to  the composition file and
-										// extracted when the file is loaded.
-	CKSOUND_USEGLOBAL				=2,	// Use Global settings. This flag is only valid for the CKSound::SetSaveOptions method.
+    CKSOUND_EXTERNAL				=0,	// Store only the file name for the sound. The sound file must be present
+                                        // in one of the sound paths when the composition is loaded.
+    CKSOUND_INCLUDEORIGINALFILE		=1,	// Insert original sound file inside the CMO file. The sound file that 
+                                        // was used originally will be append to  the composition file and
+                                        // extracted when the file is loaded.
+    CKSOUND_USEGLOBAL				=2,	// Use Global settings. This flag is only valid for the CKSound::SetSaveOptions method.
 } CK_SOUND_SAVEOPTIONS;
 
 
@@ -899,16 +897,16 @@ typedef enum CK_SOUND_SAVEOPTIONS
 {filename:CK_CONFIG_FLAGS}
 Summary: Flags specifying start options for Virtools
 Remarks:
-	Flags specifying start options for Virtools
+    Flags specifying start options for Virtools
 
 
 
 See also: CKCreateContext
 *************************************************/
 typedef enum CK_CONFIG_FLAGS {
-		CK_CONFIG_DISABLEDSOUND=			1,		// Prevent CK from initializing Sound Engines
-		CK_CONFIG_DISABLEDINPUT=			2,		// Prevent CK from initializing Input Engines
-		CK_CONFIG_DOWARN=					4		// Set this flag for message box warning (sound init failed, etc.)
+        CK_CONFIG_DISABLEDSOUND=			1,		// Prevent CK from initializing Sound Engines
+        CK_CONFIG_DISABLEDINPUT=			2,		// Prevent CK from initializing Input Engines
+        CK_CONFIG_DOWARN=					4		// Set this flag for message box warning (sound init failed, etc.)
 } CK_CONFIG_FLAGS;
 
 
@@ -920,9 +918,9 @@ Remarks: Flags specifying how objects should be deleted.
 See also: CKContext::DestroyObjects,CKContext::DestroyObject
 *************************************************/
 typedef enum CK_DESTROY_FLAGS {
-	CK_DESTROY_FREEID		= 0x00000001,		// Release the CK_ID of the object so that it can be re-used bu new objects.
-	CK_DESTROY_NONOTIFY		= 0x00000002,		// Managers and other objects won't be notified of this deletion 
-	CK_DESTROY_TEMPOBJECT	= 0x00000003,		// Combination for temporary objects : Do not notify and release CK_ID
+    CK_DESTROY_FREEID		= 0x00000001,		// Release the CK_ID of the object so that it can be re-used bu new objects.
+    CK_DESTROY_NONOTIFY		= 0x00000002,		// Managers and other objects won't be notified of this deletion 
+    CK_DESTROY_TEMPOBJECT	= 0x00000003,		// Combination for temporary objects : Do not notify and release CK_ID
 } CK_DESTROY_FLAGS;
 
 
@@ -933,9 +931,9 @@ Summary: Enums specifying the type of a sound
 See also: CKSoundManager::CreateSource
 *************************************************/
 typedef enum CK_WAVESOUND_TYPE {
-		CK_WAVESOUND_BACKGROUND =			1,		// The sound is in 2D
-		CK_WAVESOUND_POINT	    =			2,		// The sound is in 3D
-		CK_WAVESOUND_CONE       =			3,		// The sound is a 3D Cone : NOT YET IMPLEMENTED
+        CK_WAVESOUND_BACKGROUND =			1,		// The sound is in 2D
+        CK_WAVESOUND_POINT	    =			2,		// The sound is in 3D
+        CK_WAVESOUND_CONE       =			3,		// The sound is a 3D Cone : NOT YET IMPLEMENTED
 } CK_WAVESOUND_TYPE;
 
 /*************************************************
@@ -946,8 +944,8 @@ Remarks:
 See also: CKSoundManager::Lock
 *************************************************/
 typedef enum CK_WAVESOUND_LOCKMODE {
-		CK_WAVESOUND_LOCKFROMWRITE		=			1,		// Uses current cursor position and ignores dwWriteCursor
-		CK_WAVESOUND_LOCKENTIREBUFFER	=			2		// Ignores dwWriteCursor and dwNumBytes - locks the whole buffer
+        CK_WAVESOUND_LOCKFROMWRITE		=			1,		// Uses current cursor position and ignores dwWriteCursor
+        CK_WAVESOUND_LOCKENTIREBUFFER	=			2		// Ignores dwWriteCursor and dwNumBytes - locks the whole buffer
 } CK_WAVESOUND_LOCKMODE;
 
 /*************************************************
@@ -958,22 +956,22 @@ Remarks:
 See also: CKSoundManager,CKWaveSound
 *************************************************/
 typedef enum CK_WAVESOUND_STATE {
-		CK_WAVESOUND_ALLTYPE			= 0x00000007, // The vave type part of the state
-		CK_WAVESOUND_LOOPED				= 0x00000008, // The vave must loop
-		CK_WAVESOUND_FADEIN				= 0x00000020, // The wave is in fadein
-		CK_WAVESOUND_FADEOUT			= 0x00000040, // The wave is in fadeout
-		CK_WAVESOUND_FADE				= 0x00000060, // The wave is in fade
-		CK_WAVESOUND_COULDBERESTARTED	= 0x00000080, // The wave data could be restarted while playing
-		CK_WAVESOUND_NODUPLICATE		= 0x00000100, // The wave data could not be duplicated
-		CK_WAVESOUND_OCCLUSIONS			= 0x00000200, // The sound can be occluded
-		CK_WAVESOUND_1ST_REFLECTIONS	= 0x00000400, // The sound can be reflected
-		CK_WAVESOUND_MONO				= 0x00000800, // The sound is in mono
-		CK_WAVESOUND_HASMOVED			= 0x00001000, // The sound must be updated
-		CK_WAVESOUND_FILESTREAMED		= 0x00002000, // The Sound is streamed from an external file
-		CK_WAVESOUND_STREAMOVERLAP		= 0x00004000, // The Streaming buffer is overlapping the current play position
-		CK_WAVESOUND_STREAMFULLYLOADED	= 0x00008000, // The streamed sound is small enough to be loaded entierly in the buffer (do not modify this flags, used internally)
-		CK_WAVESOUND_NEEDREWIND			= 0x00010000, // The sound has reached the end and needs to be rewinded before next playback
-		CK_WAVESOUND_PAUSED				= 0x00020000, // The sound has reached the end and needs to be rewinded before next playback
+        CK_WAVESOUND_ALLTYPE			= 0x00000007, // The vave type part of the state
+        CK_WAVESOUND_LOOPED				= 0x00000008, // The vave must loop
+        CK_WAVESOUND_FADEIN				= 0x00000020, // The wave is in fadein
+        CK_WAVESOUND_FADEOUT			= 0x00000040, // The wave is in fadeout
+        CK_WAVESOUND_FADE				= 0x00000060, // The wave is in fade
+        CK_WAVESOUND_COULDBERESTARTED	= 0x00000080, // The wave data could be restarted while playing
+        CK_WAVESOUND_NODUPLICATE		= 0x00000100, // The wave data could not be duplicated
+        CK_WAVESOUND_OCCLUSIONS			= 0x00000200, // The sound can be occluded
+        CK_WAVESOUND_1ST_REFLECTIONS	= 0x00000400, // The sound can be reflected
+        CK_WAVESOUND_MONO				= 0x00000800, // The sound is in mono
+        CK_WAVESOUND_HASMOVED			= 0x00001000, // The sound must be updated
+        CK_WAVESOUND_FILESTREAMED		= 0x00002000, // The Sound is streamed from an external file
+        CK_WAVESOUND_STREAMOVERLAP		= 0x00004000, // The Streaming buffer is overlapping the current play position
+        CK_WAVESOUND_STREAMFULLYLOADED	= 0x00008000, // The streamed sound is small enough to be loaded entierly in the buffer (do not modify this flags, used internally)
+        CK_WAVESOUND_NEEDREWIND			= 0x00010000, // The sound has reached the end and needs to be rewinded before next playback
+        CK_WAVESOUND_PAUSED				= 0x00020000, // The sound has reached the end and needs to be rewinded before next playback
 
 } CK_WAVESOUND_STATE;
 
@@ -986,7 +984,7 @@ typedef enum CK_WAVESOUND_STATE {
 {filename:CK_GEOMETRICPRECISION}
 Summary: Geometric precision for collision tests
 Remarks:
-	This enum is also used when asking for a collision detection. In this case it can override the precision attributed to the 
+    This enum is also used when asking for a collision detection. In this case it can override the precision attributed to the 
 obstacles (by asking for box testing, for example) or it can use this default values by using CKCOLLISION_NONE (the preferred way).
 
 
@@ -994,9 +992,9 @@ obstacles (by asking for box testing, for example) or it can use this default va
 See Also: CKCollisionManager,CKCollisionManager::DetectCollision
 ************************************************/
 typedef enum CK_GEOMETRICPRECISION {
-	CKCOLLISION_NONE	=0x00000000,		// This value is used only when we want to use the default precision when testing objects
-	CKCOLLISION_BOX		=0x00000001,		// Collision testing will occur at the Object Local Bounding Box level
-	CKCOLLISION_FACE	=0x00000002,		// Collision testing will occur at the Object Faces level.
+    CKCOLLISION_NONE	=0x00000000,		// This value is used only when we want to use the default precision when testing objects
+    CKCOLLISION_BOX		=0x00000001,		// Collision testing will occur at the Object Local Bounding Box level
+    CKCOLLISION_FACE	=0x00000002,		// Collision testing will occur at the Object Faces level.
 } CK_GEOMETRICPRECISION;
 
 /************************************************
@@ -1006,32 +1004,32 @@ Summary: Options for the RayIntersection
 See Also: CKCollisionManager,CKCollisionManager::DetectCollision
 ************************************************/
 enum CK_RAYINTERSECTION {
-	CKRAYINTERSECTION_DEFAULT		= 0x00000000,		// Default Behavior
-	CKRAYINTERSECTION_SEGMENT		= 0x00000001,		// The ray will be considered as a segment
-	CKRAYINTERSECTION_IGNOREALPHA	= 0x00000002,		// The ray will ignore the pick threshold set in the textures
-	CKRAYINTERSECTION_FIRSTCONTACT	= 0x00000004		// The ray will stop at the first face touched, not the nearest
+    CKRAYINTERSECTION_DEFAULT		= 0x00000000,		// Default Behavior
+    CKRAYINTERSECTION_SEGMENT		= 0x00000001,		// The ray will be considered as a segment
+    CKRAYINTERSECTION_IGNOREALPHA	= 0x00000002,		// The ray will ignore the pick threshold set in the textures
+    CKRAYINTERSECTION_FIRSTCONTACT	= 0x00000004		// The ray will stop at the first face touched, not the nearest
 };
 
 /************************************************
 {filename:CK_IMPACTINFO}
 Summary: Flags defining which informations should be returned from a collision.
 Remarks:
-	These flags are used to specify which members of the ImpactDesc structure should be 
-	filled with collision information.
+    These flags are used to specify which members of the ImpactDesc structure should be 
+    filled with collision information.
 
 See Also: CKCollisionManager,CKCollisionManager::DetectCollision
 ************************************************/
 typedef enum CK_IMPACTINFO {
-	OBSTACLETOUCHED		=0x00000001,		// Fills the m_ObstacleTouched member of the structure
-	SUBOBSTACLETOUCHED	=0x00000002,		// Fills the m_EntityTouched member of the structure
-	TOUCHEDFACE			=0x00000004,		// Fills the m_TouchedFace member of the structure
-	TOUCHINGFACE		=0x00000008,		// Fills the m_TouchingFace member of the structure
-	TOUCHEDVERTEX		=0x00000010,		// Fills the m_TouchedVertex member of the structure
-	TOUCHINGVERTEX		=0x00000020,		// Fills the m_TouchingVertex member of the structure
-	IMPACTWORLDMATRIX	=0x00000040,		// Fills the m_ImpactWorldMatrix member of the structure
-	IMPACTPOINT			=0x00000080,		// Fills the m_ImpactPoint member of the structure
-	IMPACTNORMAL		=0x00000100,		// Fills the m_ImpactNormal member of the structure
-	OWNERENTITY			=0x00000200,		// Fills the m_OwnerEntity member of the structure
+    OBSTACLETOUCHED		=0x00000001,		// Fills the m_ObstacleTouched member of the structure
+    SUBOBSTACLETOUCHED	=0x00000002,		// Fills the m_EntityTouched member of the structure
+    TOUCHEDFACE			=0x00000004,		// Fills the m_TouchedFace member of the structure
+    TOUCHINGFACE		=0x00000008,		// Fills the m_TouchingFace member of the structure
+    TOUCHEDVERTEX		=0x00000010,		// Fills the m_TouchedVertex member of the structure
+    TOUCHINGVERTEX		=0x00000020,		// Fills the m_TouchingVertex member of the structure
+    IMPACTWORLDMATRIX	=0x00000040,		// Fills the m_ImpactWorldMatrix member of the structure
+    IMPACTPOINT			=0x00000080,		// Fills the m_ImpactPoint member of the structure
+    IMPACTNORMAL		=0x00000100,		// Fills the m_ImpactNormal member of the structure
+    OWNERENTITY			=0x00000200,		// Fills the m_OwnerEntity member of the structure
 }CK_IMPACTINFO;
 
 
@@ -1044,12 +1042,12 @@ typedef enum CK_IMPACTINFO {
  Summary: Geometric precision for floor-intersection tests.
 
 Remarks:
-	Enum defining the geometric precision that should be use by default for an entity during the floor test
+    Enum defining the geometric precision that should be use by default for an entity during the floor test
 See Also: CKFloorManager
 ************************************************/
 typedef enum CK_FLOORGEOMETRY {
-	CKFLOOR_FACES		=0x00000000,		// Floors testing will occur at the Object Faces level.
-	CKFLOOR_BOX			=0x00000001,		// Floors testing will occur at the Object Local Bounding Box level
+    CKFLOOR_FACES		=0x00000000,		// Floors testing will occur at the Object Faces level.
+    CKFLOOR_BOX			=0x00000001,		// Floors testing will occur at the Object Local Bounding Box level
 } CK_FLOORGEOMETRY;
 
 /************************************************
@@ -1059,9 +1057,9 @@ Summary: Enum defining the floors found when retrieving the floors around a posi
 See Also: CKFloorManager::GetNearestFloors
 ************************************************/
 typedef enum CK_FLOORNEAREST{
-	CKFLOOR_NOFLOOR	=0x00000000,		// No Floors were found 
-	CKFLOOR_DOWN	=0x00000001,		// There is a floor below the asked position
-	CKFLOOR_UP		=0x00000002,		// There is a floor above the asked position
+    CKFLOOR_NOFLOOR	=0x00000000,		// No Floors were found 
+    CKFLOOR_DOWN	=0x00000001,		// There is a floor below the asked position
+    CKFLOOR_UP		=0x00000002,		// There is a floor above the asked position
 } CK_FLOORNEAREST;
 
 
@@ -1076,10 +1074,10 @@ Summary: Enum defining the orientation of a Grid
 See Also: CKGrid::GetOrientationMode, CKGrid::SetOrientationMode
 ************************************************/
 typedef enum CK_GRIDORIENTATION{
-	CKGRID_FREE = 0x00000000,	// Free Orientation
-	CKGRID_XZ	= 0x00000001,   // Aligned along the X and Z world axis
-	CKGRID_XY	= 0x00000002,   // Aligned along the X and Y world axis
-	CKGRID_YZ = 0x00000003,		// Aligned along the Y and Z world axis
+    CKGRID_FREE = 0x00000000,	// Free Orientation
+    CKGRID_XZ	= 0x00000001,   // Aligned along the X and Z world axis
+    CKGRID_XY	= 0x00000002,   // Aligned along the X and Y world axis
+    CKGRID_YZ = 0x00000003,		// Aligned along the Y and Z world axis
 } CK_GRIDORIENTATION;
 
 
@@ -1090,7 +1088,7 @@ Summary: Enum defining the format of a Grid Layer
 See Also: CKGrid,CKLayer::GetFormat, CKLayer::SetFormat
 ************************************************/
 typedef enum CKGRID_LAYER_FORMAT{
-	CKGRID_LAYER_FORMAT_NORMAL = 0x00000000,   // Free Orientation
+    CKGRID_LAYER_FORMAT_NORMAL = 0x00000000,   // Free Orientation
 } CKGRID_LAYER_FORMAT;
 
 
@@ -1105,10 +1103,10 @@ Summary: Available operations between colums of a DataArray
 See Also: CKDataArray::ColumnTransform, CKDataArray::ColumnOperate
 ************************************************/
 typedef enum CK_BINARYOPERATOR{
-	CKADD	= 1,	// Addition
-	CKSUB	= 2,	// Substraction
-	CKMUL	= 3,	// Multiplication	
-	CKDIV	= 4		// Division
+    CKADD	= 1,	// Addition
+    CKSUB	= 2,	// Substraction
+    CKMUL	= 3,	// Multiplication	
+    CKDIV	= 4		// Division
 } CK_BINARYOPERATOR;
 
 /************************************************
@@ -1119,37 +1117,37 @@ Remarks:
 See Also: CKDataArray::CreateGroup, CKDataArray::FindLine
 ************************************************/
 typedef enum CK_COMPOPERATOR{
-	CKEQUAL			= 1,	
-	CKNOTEQUAL		= 2,
-	CKLESSER		= 3,
-	CKLESSEREQUAL	= 4,
-	CKGREATER		= 5,
-	CKGREATEREQUAL	= 6
+    CKEQUAL			= 1,	
+    CKNOTEQUAL		= 2,
+    CKLESSER		= 3,
+    CKLESSEREQUAL	= 4,
+    CKGREATER		= 5,
+    CKGREATEREQUAL	= 6
 } CK_COMPOPERATOR;
 
 
 
 typedef enum CK_SETOPERATOR{
-	CKUNION	= 1,			// Addition
-	CKINTERSECTION = 2,		// Intersection
-	CKSUBTRACTION	= 3,	// Subtraction	
+    CKUNION	= 1,			// Addition
+    CKINTERSECTION = 2,		// Intersection
+    CKSUBTRACTION	= 3,	// Subtraction	
 } CK_SETOPERATOR;
 
 /************************************************
 {filename:CK_ARRAYTYPE}
 Summary: Enum defining the format of a Data Array element.
 Remarks:
-	+ In a data array each column can contain data
-	of the given type.
+    + In a data array each column can contain data
+    of the given type.
 
 See Also: CKDataArray::InsertColumn, CKDataArray::GetColumnType
 ************************************************/
 typedef enum CK_ARRAYTYPE{
-	CKARRAYTYPE_INT = 1,		// an integer
-	CKARRAYTYPE_FLOAT = 2,		// a float
-	CKARRAYTYPE_STRING = 3,		// a pointer to a string
-	CKARRAYTYPE_OBJECT = 4,		// a CKObject ID (CK_ID)
-	CKARRAYTYPE_PARAMETER = 5	// a CKParameter ID
+    CKARRAYTYPE_INT = 1,		// an integer
+    CKARRAYTYPE_FLOAT = 2,		// a float
+    CKARRAYTYPE_STRING = 3,		// a pointer to a string
+    CKARRAYTYPE_OBJECT = 4,		// a CKObject ID (CK_ID)
+    CKARRAYTYPE_PARAMETER = 5	// a CKParameter ID
 } CK_ARRAYTYPE;
 
 
@@ -1157,15 +1155,15 @@ typedef enum CK_ARRAYTYPE{
 {filename:CK_MOUSEBUTTON}
 Summary:  Mouse Buttons Constants
 Remarks:
-	+ Constants identifying mouse buttons.
+    + Constants identifying mouse buttons.
 
 See also: CKInputManager::IsMouseButtonDown()
 *************************************************/
 typedef enum CK_MOUSEBUTTON {
-			CK_MOUSEBUTTON_LEFT		= 0,			// Left Mouse Button
-			CK_MOUSEBUTTON_RIGHT	= 1,			// Right Mouse Button
-			CK_MOUSEBUTTON_MIDDLE   = 2,			// Middle Mouse Button
-			CK_MOUSEBUTTON_4		= 3				
+            CK_MOUSEBUTTON_LEFT		= 0,			// Left Mouse Button
+            CK_MOUSEBUTTON_RIGHT	= 1,			// Right Mouse Button
+            CK_MOUSEBUTTON_MIDDLE   = 2,			// Middle Mouse Button
+            CK_MOUSEBUTTON_4		= 3				
 } CK_MOUSEBUTTON;
 
 
@@ -1184,16 +1182,16 @@ created CKObjects should be created as dynamic (See also Dynamic Objects)
 See also : CKContext::Load,CKContext::CKSave
 *************************************************/
 typedef enum CK_LOAD_FLAGS {
-			CK_LOAD_ANIMATION					=1<<0,	// Load animations
-			CK_LOAD_GEOMETRY					=1<<1,	// Load geometry.
-			CK_LOAD_DEFAULT						=CK_LOAD_GEOMETRY|CK_LOAD_ANIMATION,	// Load animations & geometry
-			CK_LOAD_ASCHARACTER					=1<<2, // Load all the objects and create a character that contains them all .
-			CK_LOAD_DODIALOG					=1<<3, // Check object name unicity and warns the user with a dialog box when duplicate names are found. 
-			CK_LOAD_AS_DYNAMIC_OBJECT			=1<<4, // Objects loaded from this file may be deleted at run-time or are temporary
-			CK_LOAD_AUTOMATICMODE				=1<<5, // Check object name unicity and automatically rename or replace according to the options specified in CKContext::SetAutomaticLoadMode
-			CK_LOAD_CHECKDUPLICATES				=1<<6, // Check object name unicity (The list of duplicates is stored in the CKFile class after a OpenFile call
-			CK_LOAD_CHECKDEPENDENCIES			=1<<7, // Check if every plugins needed are availables
-			CK_LOAD_ONLYBEHAVIORS				=1<<8, // 
+            CK_LOAD_ANIMATION					=1<<0,	// Load animations
+            CK_LOAD_GEOMETRY					=1<<1,	// Load geometry.
+            CK_LOAD_DEFAULT						=CK_LOAD_GEOMETRY|CK_LOAD_ANIMATION,	// Load animations & geometry
+            CK_LOAD_ASCHARACTER					=1<<2, // Load all the objects and create a character that contains them all .
+            CK_LOAD_DODIALOG					=1<<3, // Check object name unicity and warns the user with a dialog box when duplicate names are found. 
+            CK_LOAD_AS_DYNAMIC_OBJECT			=1<<4, // Objects loaded from this file may be deleted at run-time or are temporary
+            CK_LOAD_AUTOMATICMODE				=1<<5, // Check object name unicity and automatically rename or replace according to the options specified in CKContext::SetAutomaticLoadMode
+            CK_LOAD_CHECKDUPLICATES				=1<<6, // Check object name unicity (The list of duplicates is stored in the CKFile class after a OpenFile call
+            CK_LOAD_CHECKDEPENDENCIES			=1<<7, // Check if every plugins needed are availables
+            CK_LOAD_ONLYBEHAVIORS				=1<<8, // 
 } CK_LOAD_FLAGS;
 
 
@@ -1201,21 +1199,21 @@ typedef enum CK_LOAD_FLAGS {
 {filename:CK_PLUGIN_TYPE}
 Summary: Type identifier for a Virtools plugin.
 Remarks: 
-	+ Each plugin must be given a type.
-	+ This enumeration is used to identify a specific catagory 
-	of plugin when using the CKPluginManager.
+    + Each plugin must be given a type.
+    + This enumeration is used to identify a specific catagory 
+    of plugin when using the CKPluginManager.
 
 See also: CKPluginManager,Creating New Plugins
 *************************************************/
 typedef enum CK_PLUGIN_TYPE {
-	CKPLUGIN_BITMAP_READER		= 0,	// The plugin is bitmap (textures,sprites) loader
-	CKPLUGIN_SOUND_READER		= 1,	// Sound Reader Plugin
-	CKPLUGIN_MODEL_READER		= 2,	// 3D Model Reader 
-	CKPLUGIN_MANAGER_DLL		= 3,	// The plugin implements a Manager
-	CKPLUGIN_BEHAVIOR_DLL		= 4,	// The plugin implements one or more behaviors
-	CKPLUGIN_RENDERENGINE_DLL	= 5,	// Render Engine plugin
-	CKPLUGIN_MOVIE_READER		= 6,	// Movie (AVI,Mpeg) reader		
-	CKPLUGIN_EXTENSION_DLL		= 7,	// Generic extension (definition of new parameter types or operations for ex.)	
+    CKPLUGIN_BITMAP_READER		= 0,	// The plugin is bitmap (textures,sprites) loader
+    CKPLUGIN_SOUND_READER		= 1,	// Sound Reader Plugin
+    CKPLUGIN_MODEL_READER		= 2,	// 3D Model Reader 
+    CKPLUGIN_MANAGER_DLL		= 3,	// The plugin implements a Manager
+    CKPLUGIN_BEHAVIOR_DLL		= 4,	// The plugin implements one or more behaviors
+    CKPLUGIN_RENDERENGINE_DLL	= 5,	// Render Engine plugin
+    CKPLUGIN_MOVIE_READER		= 6,	// Movie (AVI,Mpeg) reader		
+    CKPLUGIN_EXTENSION_DLL		= 7,	// Generic extension (definition of new parameter types or operations for ex.)	
 } CK_PLUGIN_TYPE;
 
 
@@ -1419,7 +1417,7 @@ typedef enum CK_PLUGIN_TYPE {
 #define CKPGUID_FILTERMODE		CKDEFINEGUID(0x2bd753b3,0x563e5165)
 
 #define CKPGUID_BLENDFACTOR		CKDEFINEGUID(0x89e28d4,0x2ef031d2)
-	
+    
 #define CKPGUID_FILLMODE		CKDEFINEGUID(0x2b0f1617,0x53ce1b0e)
 
 #define CKPGUID_LITMODE			CKDEFINEGUID(0x6dd30f0a,0x74671d2e)
@@ -1533,19 +1531,19 @@ typedef enum CK_PLUGIN_TYPE {
 
 
 typedef enum CK_VIRTOOLS_VERSION {
-	CK_VIRTOOLS_DEV			= 0,
-	CK_VIRTOOLS_CREATION	= 1,
-	CK_VIRTOOLS_DEV_EVAL	= 2,
-	CK_VIRTOOLS_CREA_EVAL	= 3,
-	CK_VIRTOOLS_DEV_NFR		= 4,
-	CK_VIRTOOLS_CREA_NFR	= 5,
-	CK_VIRTOOLS_DEV_EDU		= 6,
-	CK_VIRTOOLS_CREA_EDU	= 7,
-	CK_VIRTOOLS_DEV_TB		= 8,
-	CK_VIRTOOLS_CREA_TB		= 9,
-	CK_VIRTOOLS_DEV_NCV		= 10,
-	CK_VIRTOOLS_DEV_SE		= 11,
-	CK_VIRTOOLS_MAXVERSION	= 12,
+    CK_VIRTOOLS_DEV			= 0,
+    CK_VIRTOOLS_CREATION	= 1,
+    CK_VIRTOOLS_DEV_EVAL	= 2,
+    CK_VIRTOOLS_CREA_EVAL	= 3,
+    CK_VIRTOOLS_DEV_NFR		= 4,
+    CK_VIRTOOLS_CREA_NFR	= 5,
+    CK_VIRTOOLS_DEV_EDU		= 6,
+    CK_VIRTOOLS_CREA_EDU	= 7,
+    CK_VIRTOOLS_DEV_TB		= 8,
+    CK_VIRTOOLS_CREA_TB		= 9,
+    CK_VIRTOOLS_DEV_NCV		= 10,
+    CK_VIRTOOLS_DEV_SE		= 11,
+    CK_VIRTOOLS_MAXVERSION	= 12,
 } CK_VIRTOOLS_VERSION;
 
 //------------------------------------------
@@ -1750,146 +1748,146 @@ typedef enum CKKEYBOARD {
 
 #else
 typedef enum CKKEYBOARD {
-	  CKKEY_ESCAPE			= 0x01         // Escape
-	, CKKEY_1				= 0x02		  // 1 through 0 on main keyboard		
-	, CKKEY_2				= 0x03     
-	, CKKEY_3				= 0x04     
-	, CKKEY_4				= 0x05     
-	, CKKEY_5				= 0x06     
-	, CKKEY_6				= 0x07     
-	, CKKEY_7				= 0x08     
-	, CKKEY_8				= 0x09     
-	, CKKEY_9				= 0x0A     
-	, CKKEY_0				= 0x0B     
-	, CKKEY_MINUS			= 0x0C       // - on main keyboard 
-	, CKKEY_EQUALS			= 0x0D		 // = on main keyboard 
-	, CKKEY_BACK			= 0x0E       // backspace 
-	, CKKEY_TAB				= 0x0F				
-	, CKKEY_Q				= 0x10         
-	, CKKEY_W				= 0x11         
-	, CKKEY_E				= 0x12       
-	, CKKEY_R				= 0x13       
-	, CKKEY_T				= 0x14       
-	, CKKEY_Y				= 0x15       
-	, CKKEY_U				= 0x16       
-	, CKKEY_I				= 0x17       
-	, CKKEY_O				= 0x18       
-	, CKKEY_P				= 0x19       
-	, CKKEY_LBRACKET		= 0x1A       // [  
-	, CKKEY_RBRACKET		= 0x1B		 // ]
-	, CKKEY_RETURN			= 0x1C       // Enter on main keyboard 
-	, CKKEY_LCONTROL		= 0x1D		 // Left Control 	
-	, CKKEY_A				= 0x1E       
-	, CKKEY_S				= 0x1F       
-	, CKKEY_D				= 0x20       
-	, CKKEY_F				= 0x21       
-	, CKKEY_G				= 0x22       
-	, CKKEY_H				= 0x23       
-	, CKKEY_J				= 0x24       
-	, CKKEY_K				= 0x25       
-	, CKKEY_L				= 0x26       
-	, CKKEY_SEMICOLON		= 0x27		  // ;	
-	, CKKEY_APOSTROPHE		= 0x28		  // '	
-	, CKKEY_GRAVE			= 0x29        // accent grave 
-	, CKKEY_LSHIFT			= 0x2A		  // Left shift		
-	, CKKEY_BACKSLASH		= 0x2B		  //	 
-	, CKKEY_Z				= 0x2C       
-	, CKKEY_X				= 0x2D       
-	, CKKEY_C				= 0x2E       
-	, CKKEY_V				= 0x2F       
-	, CKKEY_B				= 0x30       
-	, CKKEY_N				= 0x31       
-	, CKKEY_M				= 0x32       
-	, CKKEY_COMMA			= 0x33		 // ,	 
-	, CKKEY_PERIOD			= 0x34       // . on main keyboard 
-	, CKKEY_SLASH			= 0x35       // / on main keyboard 
-	, CKKEY_RSHIFT			= 0x36		 // Right Shift
-	, CKKEY_MULTIPLY		= 0x37       // * on numeric keypad 
-	, CKKEY_LMENU			= 0x38       // left Alt 
-	, CKKEY_SPACE			= 0x39		 // Space Bar 
-	, CKKEY_CAPITAL			= 0x3A		 // Caps Lock	
-	, CKKEY_F1				= 0x3B		
-	, CKKEY_F2				= 0x3C       
-	, CKKEY_F3				= 0x3D       
-	, CKKEY_F4				= 0x3E       
-	, CKKEY_F5				= 0x3F       
-	, CKKEY_F6				= 0x40       
-	, CKKEY_F7				= 0x41       
-	, CKKEY_F8				= 0x42       
-	, CKKEY_F9				= 0x43       
-	, CKKEY_F10				= 0x44       
-	, CKKEY_NUMLOCK			= 0x45			  // Num Lock	
-	, CKKEY_SCROLL			= 0x46           // Scroll Lock 
-	, CKKEY_NUMPAD7			= 0x47       
-	, CKKEY_NUMPAD8			= 0x48       
-	, CKKEY_NUMPAD9			= 0x49       
-	, CKKEY_SUBTRACT		= 0x4A           // - on numeric keypad 
-	, CKKEY_NUMPAD4			= 0x4B       
-	, CKKEY_NUMPAD5			= 0x4C       
-	, CKKEY_NUMPAD6			= 0x4D       
-	, CKKEY_ADD				= 0x4E           // + on numeric keypad 
-	, CKKEY_NUMPAD1			= 0x4F       
-	, CKKEY_NUMPAD2			= 0x50       
-	, CKKEY_NUMPAD3			= 0x51       
-	, CKKEY_NUMPAD0			= 0x52       
-	, CKKEY_DECIMAL			= 0x53           // . on numeric keypad 
-	, CKKEY_F11				= 0x57       
-	, CKKEY_F12				= 0x58       
-								
-	, CKKEY_F13				= 0x64                 //   (NEC PC98) 
-	, CKKEY_F14				= 0x65                 //   (NEC PC98) 
-	, CKKEY_F15				= 0x66                 //   (NEC PC98) 
-										
-	, CKKEY_KANA			= 0x70       // (Japanese keyboard)            
-	, CKKEY_CONVERT			= 0x79       // (Japanese keyboard)            
-	, CKKEY_NOCONVERT		= 0x7B       // (Japanese keyboard)            
-	, CKKEY_YEN				= 0x7D       // (Japanese keyboard)            
-	, CKKEY_NUMPADEQUALS	= 0x8D       // = on numeric keypad (NEC PC98) 
-	, CKKEY_CIRCUMFLEX		= 0x90       // (Japanese keyboard)            
-	, CKKEY_AT				= 0x91       //    (NEC PC98) 
-	, CKKEY_COLON			= 0x92       //    (NEC PC98) 
-	, CKKEY_UNDERLINE		= 0x93       //    (NEC PC98) 
-	, CKKEY_KANJI			= 0x94       // (Japanese keyboard)            
-	, CKKEY_STOP			= 0x95       //    (NEC PC98) 
-	, CKKEY_AX				= 0x96       //    (Japan AX) 
-	, CKKEY_UNLABELED		= 0x97       //       (J3100) 
-	, CKKEY_NUMPADENTER		= 0x9C       // Enter on numeric keypad 
-	, CKKEY_RCONTROL		= 0x9D   
-	, CKKEY_NUMPADCOMMA		= 0xB3       // , on numeric keypad (NEC PC98) 
-	, CKKEY_DIVIDE			= 0xB5       // / on numeric keypad 
-	, CKKEY_SYSRQ			= 0xB7   
-	, CKKEY_RMENU			= 0xB8       // right Alt 
-	, CKKEY_HOME			= 0xC7       // Home on arrow keypad 
-	, CKKEY_UP				= 0xC8       // UpArrow on arrow keypad 
-	, CKKEY_PRIOR			= 0xC9       // PgUp on arrow keypad 
-	, CKKEY_LEFT			= 0xCB       // LeftArrow on arrow keypad 
-	, CKKEY_RIGHT			= 0xCD       // RightArrow on arrow keypad 
-	, CKKEY_END				= 0xCF       // End on arrow keypad 
-	, CKKEY_DOWN			= 0xD0       // DownArrow on arrow keypad 
-	, CKKEY_NEXT			= 0xD1       // PgDn on arrow keypad 
-	, CKKEY_INSERT			= 0xD2       // Insert on arrow keypad 
-	, CKKEY_DELETE			= 0xD3       // Delete on arrow keypad 
-	, CKKEY_LWIN			= 0xDB       // Left Windows key 
-	, CKKEY_RWIN			= 0xDC       // Right Windows key 
-	, CKKEY_APPS			= 0xDD,        // AppMenu key 
+      CKKEY_ESCAPE			= 0x01         // Escape
+    , CKKEY_1				= 0x02		  // 1 through 0 on main keyboard		
+    , CKKEY_2				= 0x03     
+    , CKKEY_3				= 0x04     
+    , CKKEY_4				= 0x05     
+    , CKKEY_5				= 0x06     
+    , CKKEY_6				= 0x07     
+    , CKKEY_7				= 0x08     
+    , CKKEY_8				= 0x09     
+    , CKKEY_9				= 0x0A     
+    , CKKEY_0				= 0x0B     
+    , CKKEY_MINUS			= 0x0C       // - on main keyboard 
+    , CKKEY_EQUALS			= 0x0D		 // = on main keyboard 
+    , CKKEY_BACK			= 0x0E       // backspace 
+    , CKKEY_TAB				= 0x0F				
+    , CKKEY_Q				= 0x10         
+    , CKKEY_W				= 0x11         
+    , CKKEY_E				= 0x12       
+    , CKKEY_R				= 0x13       
+    , CKKEY_T				= 0x14       
+    , CKKEY_Y				= 0x15       
+    , CKKEY_U				= 0x16       
+    , CKKEY_I				= 0x17       
+    , CKKEY_O				= 0x18       
+    , CKKEY_P				= 0x19       
+    , CKKEY_LBRACKET		= 0x1A       // [  
+    , CKKEY_RBRACKET		= 0x1B		 // ]
+    , CKKEY_RETURN			= 0x1C       // Enter on main keyboard 
+    , CKKEY_LCONTROL		= 0x1D		 // Left Control 	
+    , CKKEY_A				= 0x1E       
+    , CKKEY_S				= 0x1F       
+    , CKKEY_D				= 0x20       
+    , CKKEY_F				= 0x21       
+    , CKKEY_G				= 0x22       
+    , CKKEY_H				= 0x23       
+    , CKKEY_J				= 0x24       
+    , CKKEY_K				= 0x25       
+    , CKKEY_L				= 0x26       
+    , CKKEY_SEMICOLON		= 0x27		  // ;	
+    , CKKEY_APOSTROPHE		= 0x28		  // '	
+    , CKKEY_GRAVE			= 0x29        // accent grave 
+    , CKKEY_LSHIFT			= 0x2A		  // Left shift		
+    , CKKEY_BACKSLASH		= 0x2B		  //	 
+    , CKKEY_Z				= 0x2C       
+    , CKKEY_X				= 0x2D       
+    , CKKEY_C				= 0x2E       
+    , CKKEY_V				= 0x2F       
+    , CKKEY_B				= 0x30       
+    , CKKEY_N				= 0x31       
+    , CKKEY_M				= 0x32       
+    , CKKEY_COMMA			= 0x33		 // ,	 
+    , CKKEY_PERIOD			= 0x34       // . on main keyboard 
+    , CKKEY_SLASH			= 0x35       // / on main keyboard 
+    , CKKEY_RSHIFT			= 0x36		 // Right Shift
+    , CKKEY_MULTIPLY		= 0x37       // * on numeric keypad 
+    , CKKEY_LMENU			= 0x38       // left Alt 
+    , CKKEY_SPACE			= 0x39		 // Space Bar 
+    , CKKEY_CAPITAL			= 0x3A		 // Caps Lock	
+    , CKKEY_F1				= 0x3B		
+    , CKKEY_F2				= 0x3C       
+    , CKKEY_F3				= 0x3D       
+    , CKKEY_F4				= 0x3E       
+    , CKKEY_F5				= 0x3F       
+    , CKKEY_F6				= 0x40       
+    , CKKEY_F7				= 0x41       
+    , CKKEY_F8				= 0x42       
+    , CKKEY_F9				= 0x43       
+    , CKKEY_F10				= 0x44       
+    , CKKEY_NUMLOCK			= 0x45			  // Num Lock	
+    , CKKEY_SCROLL			= 0x46           // Scroll Lock 
+    , CKKEY_NUMPAD7			= 0x47       
+    , CKKEY_NUMPAD8			= 0x48       
+    , CKKEY_NUMPAD9			= 0x49       
+    , CKKEY_SUBTRACT		= 0x4A           // - on numeric keypad 
+    , CKKEY_NUMPAD4			= 0x4B       
+    , CKKEY_NUMPAD5			= 0x4C       
+    , CKKEY_NUMPAD6			= 0x4D       
+    , CKKEY_ADD				= 0x4E           // + on numeric keypad 
+    , CKKEY_NUMPAD1			= 0x4F       
+    , CKKEY_NUMPAD2			= 0x50       
+    , CKKEY_NUMPAD3			= 0x51       
+    , CKKEY_NUMPAD0			= 0x52       
+    , CKKEY_DECIMAL			= 0x53           // . on numeric keypad 
+    , CKKEY_F11				= 0x57       
+    , CKKEY_F12				= 0x58       
+                                
+    , CKKEY_F13				= 0x64                 //   (NEC PC98) 
+    , CKKEY_F14				= 0x65                 //   (NEC PC98) 
+    , CKKEY_F15				= 0x66                 //   (NEC PC98) 
+                                        
+    , CKKEY_KANA			= 0x70       // (Japanese keyboard)            
+    , CKKEY_CONVERT			= 0x79       // (Japanese keyboard)            
+    , CKKEY_NOCONVERT		= 0x7B       // (Japanese keyboard)            
+    , CKKEY_YEN				= 0x7D       // (Japanese keyboard)            
+    , CKKEY_NUMPADEQUALS	= 0x8D       // = on numeric keypad (NEC PC98) 
+    , CKKEY_CIRCUMFLEX		= 0x90       // (Japanese keyboard)            
+    , CKKEY_AT				= 0x91       //    (NEC PC98) 
+    , CKKEY_COLON			= 0x92       //    (NEC PC98) 
+    , CKKEY_UNDERLINE		= 0x93       //    (NEC PC98) 
+    , CKKEY_KANJI			= 0x94       // (Japanese keyboard)            
+    , CKKEY_STOP			= 0x95       //    (NEC PC98) 
+    , CKKEY_AX				= 0x96       //    (Japan AX) 
+    , CKKEY_UNLABELED		= 0x97       //       (J3100) 
+    , CKKEY_NUMPADENTER		= 0x9C       // Enter on numeric keypad 
+    , CKKEY_RCONTROL		= 0x9D   
+    , CKKEY_NUMPADCOMMA		= 0xB3       // , on numeric keypad (NEC PC98) 
+    , CKKEY_DIVIDE			= 0xB5       // / on numeric keypad 
+    , CKKEY_SYSRQ			= 0xB7   
+    , CKKEY_RMENU			= 0xB8       // right Alt 
+    , CKKEY_HOME			= 0xC7       // Home on arrow keypad 
+    , CKKEY_UP				= 0xC8       // UpArrow on arrow keypad 
+    , CKKEY_PRIOR			= 0xC9       // PgUp on arrow keypad 
+    , CKKEY_LEFT			= 0xCB       // LeftArrow on arrow keypad 
+    , CKKEY_RIGHT			= 0xCD       // RightArrow on arrow keypad 
+    , CKKEY_END				= 0xCF       // End on arrow keypad 
+    , CKKEY_DOWN			= 0xD0       // DownArrow on arrow keypad 
+    , CKKEY_NEXT			= 0xD1       // PgDn on arrow keypad 
+    , CKKEY_INSERT			= 0xD2       // Insert on arrow keypad 
+    , CKKEY_DELETE			= 0xD3       // Delete on arrow keypad 
+    , CKKEY_LWIN			= 0xDB       // Left Windows key 
+    , CKKEY_RWIN			= 0xDC       // Right Windows key 
+    , CKKEY_APPS			= 0xDD,        // AppMenu key 
 
 } CKKEYBOARD;
 #endif
 
 
 typedef enum CK_PARAMETER_FLAGS {
-				CKPARAMETER_LOCAL	=0,  // The parameter is local to a CKBehavior
-				CKPARAMETER_IN		=1,	 // The parameter is an input of a CKBehavior	
-				CKPARAMETER_OUT		=2,	 // The	parameter is an output of a CKBehavior or a parameter of a CKBeObject
-				CKPARAMETER_SETTING =3,	 // The	parameter is used as a setting parameter by a CKBehavior.
+                CKPARAMETER_LOCAL	=0,  // The parameter is local to a CKBehavior
+                CKPARAMETER_IN		=1,	 // The parameter is an input of a CKBehavior	
+                CKPARAMETER_OUT		=2,	 // The	parameter is an output of a CKBehavior or a parameter of a CKBeObject
+                CKPARAMETER_SETTING =3,	 // The	parameter is used as a setting parameter by a CKBehavior.
 } CK_PARAMETER_FLAGS;
 
 
 
 typedef enum CK_PROFILE_CATEGORY {
-	CK_PROFILE_RENDERTIME		= 3,
-	CK_PROFILE_IKTIME			= 7,
-	CK_PROFILE_ANIMATIONTIME	= 6,
+    CK_PROFILE_RENDERTIME		= 3,
+    CK_PROFILE_IKTIME			= 7,
+    CK_PROFILE_ANIMATIONTIME	= 6,
 } CK_PROFILE_CATEGORY;
 
 #endif
