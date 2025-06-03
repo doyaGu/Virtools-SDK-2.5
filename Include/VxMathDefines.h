@@ -86,21 +86,28 @@ typedef struct
 } CKPOINT;
 
 class VxMatrix;
+class VxStridedData;
 
 /************************************************
 Summary: Structure for storage of strided data.
 
+************************************************/
+typedef struct VxStridedDataBase {
+	union {
+		void *Ptr;
+		unsigned char *CPtr;
+	};
+	unsigned int Stride;
+	operator const VxStridedData &() const { return *(const VxStridedData *)this; }
+} VxStridedDataBase;
+
+/************************************************
+Summary: Structure for storage of strided data.
 
 ************************************************/
-typedef struct VxStridedData
-{
-    void *DataPtr;
-    unsigned int DataStride;
-    VxStridedData(void *Ptr = NULL, unsigned int Stride = 0)
-    {
-        DataPtr = Ptr;
-        DataStride = Stride;
-    }
+typedef struct VxStridedData : public VxStridedDataBase  {
+	VxStridedData() { Ptr = 0; Stride = 0; }
+	VxStridedData(void* iPtr, unsigned int iStride) { Ptr = iPtr; Stride = iStride; }
 } VxStridedData;
 
 /************************************************
